@@ -1,0 +1,48 @@
+{
+  "devDependencies": {
+    "apache-server-configs": "2.14.0",
+    "archiver": "^0.14.3",
+    "del": "^1.1.1",
+    "glob": "^5.0.5",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-header": "^1.2.2",
+    "gulp-jscs": "^1.5.1",
+    "gulp-jshint": "^1.9.2",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.3",
+    "jquery": "1.11.3",
+    "jshint-stylish": "^1.0.1",
+    "mocha": "^2.2.4",
+    "normalize.css": "3.0.3",
+    "run-sequence": "^1.0.2"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "configs": {
+    "directories": {
+      "archive": "archive",
+      "dist": "dist",
+      "src": "src",
+      "test": "test"
+    }
+  },
+  "homepage": "https://github.com/sajjadhossain/resume-builder",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/sajjadhossain/resume-builder/blob/master/LICENSE.txt"
+  },
+  "name": "resume-builder",
+  "private": true,
+  "scripts": {
+    "build": "gulp build",
+    "test": "gulp archive && mocha --reporter spec --timeout 5000"
+  },
+  "version": "0.0.1",
+  "dependencies": {
+    "markdown": "^0.5.0",
+    "materialize-css": "^0.97.1"
+  }
+}
