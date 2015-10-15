@@ -28,6 +28,7 @@ var expectedFilesInDistDir = [
         'css/materialize.min.css',
 
     'doc/',
+        'doc/README.md',
         'doc/TOC.md',
         'doc/css.md',
         'doc/extend.md',
