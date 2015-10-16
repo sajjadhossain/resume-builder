@@ -1,0 +1,23 @@
+article(id='candidate-education')
+    div(class!=templates['cards'])
+        div(class='row remove-margin-bottom')
+            div(class='col s12')
+                for school in education
+                    p(class='flow-text truncate') !{school.name}
+                    div(class='chips-padding')
+                        div(class='chip')
+                            i(class='material-icons disabled') schedule
+                            span(class='truncate') !{school.duration}
+                    div(class='chips-padding')
+                        div(class='chip')
+                            i(class='material-icons disabled') school
+                            span(class='truncate') !{school.focus}
+                    div(class='chips-padding')
+                        div(class='chip')
+                            i(class='material-icons disabled') location_city
+                            span(class='truncate') !{school.location}
+                    for more in school.plus
+                        div(class='chips-padding')
+                            div(class='chip')
+                                i(class='material-icons disabled') plus_one
+                                span(class='truncate') !{more}

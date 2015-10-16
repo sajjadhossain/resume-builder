@@ -129,10 +129,11 @@ textarea {
 and (min-device-width : 320px)
 and (max-device-width : 480px) {
     body {
-        background-color: #000000;
-        background-image: url("../img/background_320.jpg");
+        background: url(../images/background_320.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
         background-size: cover;
-        background-repeat: no-repeat;
     }
 
     .first-name {
