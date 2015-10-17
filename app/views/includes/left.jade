@@ -1,0 +1,14 @@
+section(id='resume-left-side')
+    div(class='hide-on-small-only show-on-large show-on-medium')
+        div(class!= templates['contactHeader'])
+            h3(class='white-text center-align remove-margin-top-bottom') Contact
+    //CANDIDATE CONTACT
+    include contact
+    div(class!= templates['skillsHeader'])
+        h3(class='white-text center-align remove-margin-top-bottom') Skills
+    //CANDIDATE SKILLS
+    include skills
+    div(class!= templates['educationHeader'])
+        h3(class='white-text center-align remove-margin-top-bottom') Education
+    //CANDIDATE EDUCATION
+    include education
