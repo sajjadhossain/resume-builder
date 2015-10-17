@@ -1,0 +1,29 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+    head
+        link(rel='stylesheet' href='stylesheets/mail.css')
+        link(rel='stylesheet' href='stylesheets/materialize.min.css')
+        //GOOGLE FONTS
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=Exo+2:300italic,100italic,200italic,200,900italic,300,400,100,400italic,900' rel='stylesheet' type='text/css')
+block content
+    div(class='row')
+        div(class='col offset-s2 s8')
+            div(class='valign-wrapper')
+                div(class='row valign')
+                    div(class='col s12')
+                        div(class='card')
+                            div(class='card-image')
+                                img(src='../images/maghrib.jpg')
+                                h1
+                                    span(class='card-title heavy-font') Meet Maghrib
+                                        span(class='small' style='font-style:italic') (maġrib)
+                            div(class='card-content')
+                                p(class='flow-text padding-top') Thanks for reaching out, !{senderName}. Well, now that you have my information, you can have your people set something up with my people. ;) I'll reply as soon as I get the chance. But in the meanwhile, let me introduce a dear friend of mine.
+                                p(class='flow-text padding-top') This is Maghrib. He loves the heated space right above my laptop keyboard. In addition to that, he also loves to sleep with his tail comfortably resting on my neck. The pillows are his, just as much they are mine.
+                                p(class='flow-text padding-top') Look forward to speaking to you!
+                                div(class='right-align')
+                                    p(class='padding-top') Best,
+                                    p !{firstName} !{lastName}
+

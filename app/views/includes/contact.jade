@@ -1,0 +1,32 @@
+article(id='candidate-contact')
+    div(class='hide-on-small-only hide-on-large-only show-on-medium center')
+        div(class!= templates['cards'])
+            div(class='chip')
+                i(class='material-icons disabled') email
+                span(class='truncate')
+                    a(href='#bottom') !{email}
+            div(class='chip')
+                i(class='material-icons disabled') phone
+                span(class='truncate')
+                    a(href!= phone target='blank') !{phone}
+            div(class='chip')
+                i(class='material-icons disabled') public
+                span(class='truncate')
+                    a(href!= host target='blank') !{website}
+    div(class='hide-on-med-and-down show-on-large')
+        div(class!= templates['cards'])
+            div(class='chips-padding')
+                div(class='chip')
+                    a(href='#bottom') !{email}
+                        i(class='material-icons disabled') email
+                        span(class='truncate')
+            div(class='chips-padding')
+                div(class='chip')
+                    a(href!= phone target='blank') !{phone}
+                        i(class='material-icons disabled') phone
+                        span(class='truncate')
+            div(class='chips-padding')
+                div(class='chip')
+                    a(href!= website target='blank') !{website}
+                        i(class='material-icons disabled') public
+                        span(class='truncate')

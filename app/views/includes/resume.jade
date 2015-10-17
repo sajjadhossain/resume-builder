@@ -1,0 +1,40 @@
+for job in resume
+    div(class!= templates['cards'])
+        article(class!=job.name)
+            div(class='hide-on-small-only')
+                div(class='row valign-wrapper')
+                    div(class='col s12 m8 l8 valign')
+                        h3: span(class='truncate') !{job.name}
+                        p(class='flow-text truncate') !{job.position}
+                    div(class='col s12 m4 l4 valign')
+                        img(class='responsive-img right circle' src!= job.logo)
+            div(class='hide-on-med-and-up')
+                div(class='center')
+                    img(class='responsive-img center circle' src!= job.logo)
+                    h3: span(class='truncate') !{job.name}
+                    p(class='flow-text truncate') !{job.position}
+            div(class='chip')
+                i(class='material-icons disabled') schedule
+                span(class='truncate') !{job.duration}
+            div(class='chip')
+                i(class='material-icons disabled') location_city
+                span(class='truncate') !{job.location}
+            div(class='chip')
+                a(href!= job.site target='blank')
+                    i(class='material-icons disabled') public
+                    span(class='truncate') !{job.site}
+            each info in job.plus
+                div(class='chip')
+                    i(class='material-icons disabled') trending_up
+                    span(class='truncate') !{info}
+            p !{job.description}
+            div(class='hide-on-small-only')
+                ul(class='my-lists') !{job.bullets}
+            div(class='hide-on-med-and-up show-on-small')
+                div(class='center')
+                    a(class!=templates['modalButtons'] href!= '#' + job.name) Read More
+                div(id!= job.name class='modal bottom-sheet')
+                    div(class='col s12')
+                        ul(class='my-lists') !{job.bullets}
+                    div(class='modal-footer')
+                        a(href='#!' class='modal-action modal-close waves-effect waves-green btn-flat') Close

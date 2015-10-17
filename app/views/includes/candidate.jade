@@ -1,0 +1,29 @@
+header(id='resume-header')
+    div(class!= templates['resumeHeader'])
+        div(class='row remove-margin-bottom')
+            div(class='col s12')
+                //RESUME HEADER -- NAME, META
+                article(id='candidate-name-meta-contact')
+                    p(id='remove-margin' class='center-align')
+                        span(class='first-name') !{firstName}
+                        span(class='last-name') !{lastName}
+                    div(class='show-on-small hide-on-med-and-up')
+                        article(id='candidate-meta-contact-mobile')
+                            div(class='center')
+                                ul(class='inline')
+                                    li(class='inline')
+                                        a(href!= 'mailto:' + email target='blank')
+                                            i(class='material-icons') email
+                                    li(class='inline')
+                                        a(href!= phone target='blank')
+                                            i(class='material-icons') phone
+                                    li(class='inline')
+                                        a(href!= host target='blank')
+                                            i(class='material-icons') public
+                                    p(class='sub small right-align remove-margin-bottom') Curriculum Vitae
+                                    p(class='sub small right-align remove-margin-top-bottom') <strong>Last Updated:</strong> 09.10.2015
+                                    p(class='sub small right-align remove-margin-top-bottom') !{description}
+                    div(class='hide-on-small-only')
+                        p(class='sub right-align remove-margin-bottom') Curriculum Vitae
+                        p(class='sub right-align remove-margin-top-bottom') <strong>Last Updated:</strong> 09.10.2015
+                        p(class='sub right-align remove-margin-top-bottom') !{description}
