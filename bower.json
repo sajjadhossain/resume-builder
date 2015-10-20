@@ -1,0 +1,29 @@
+{
+  "name": "resume-builder",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sajjadhossain/resume-builder",
+  "authors": [
+    "Sajjad Hossain <sajjad@adcade.com>"
+  ],
+  "description": "It's 2015, you should update your resume and generate a web version using a CLI, using Templates on MarkDown.",
+  "main": "index.js",
+  "keywords": [
+    "Resume",
+    "Builder.",
+    "HTML5",
+    "CSS3",
+    "Express",
+    "Jade"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "PACE": "pace#~1.0.2"
+  }
+}
