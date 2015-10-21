@@ -22,10 +22,6 @@
 }());
 
 // Place any jQuery/helper plugins in here.
-$(document).ready(function(){
-    $('#loader').css('display','none');
-    $('#loaded-wrapper').css('display','block');
-});
 
 // GOOGLE Analytics
 (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

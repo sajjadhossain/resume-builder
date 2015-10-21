@@ -6,25 +6,27 @@ footer(class!= templates.footer)
                     span(class='hide-on-small-only white-text smaller right') *OPTIONAL
             h4(class='show-on-small hide-on-med-and-up white-text smaller right') *OPTIONAL
         div(class='row')
-            form(class='col s12' id='footer-form')
-                div(class='row')
-                    div(class='input-field col s12')
-                        input(value='' placeholder='Bruce Wayne' id='name' type='text' class='validate contact-form-values white-text')
-                        label(for='name')
-                            span(class='contact-form-labels') Name*
-                div(class='row')
-                    div(class='input-field col s12')
-                        input(value='' placeholder='bwayne@wayneenterprises.com' id='email' type='email' class='validate contact-form-values white-text')
-                        label(for='email')
-                            span(class='contact-form-labels') Email*
-                div(class='row')
-                    div(class='input-field col s12')
-                        textarea(value='' placeholder='Wayne Enterprises is interested in your profile.' id='message' type='textarea' class='validate materialize-textarea contact-form-values white-text')
-                        label(for='message')
-                            span(class='contact-form-labels') Message
-                div(class='right')
-                    a(class!= templates.submitButton) SUBMIT
-                        i(class='material-icons left') send
+            form(class='col s12' id='footer-form' action='' method='post' onsubmit='emailUser(); return false;')
+                span(class='email-message')
+                    div(class='row')
+                        div(class='input-field col s12')
+                            input(value='' placeholder='Bruce Wayne' id='name' type='text' class='validate contact-form-values white-text')
+                            label(for='name')
+                                span(class='contact-form-labels') Name*
+                    div(class='row')
+                        div(class='input-field col s12')
+                            input(value='' placeholder='bwayne@wayneenterprises.com' id='email' type='email' class='validate contact-form-values white-text')
+                            label(for='email')
+                                span(class='contact-form-labels') Email*
+                    div(class='row')
+                        div(class='input-field col s12')
+                            textarea(value='' placeholder='Wayne Enterprises is interested in your profile.' id='message' type='textarea' class='validate materialize-textarea contact-form-values white-text')
+                            label(for='message')
+                                span(class='contact-form-labels') Message
+                    div(class='right')
+                        a(class!= templates.submitButton id='send-email') SUBMIT
+                            i(class='material-icons left') send
+                span(class='callback-message')
     div(class!= templates.footerCopyright)
         div(class='container')
             span(class='grey-text text-lighten-4') !{year}
@@ -34,4 +36,4 @@ footer(class!= templates.footer)
     script(src='javascripts/vendor/init.js')
     script(src='javascripts/plugins.js')
     script(src='javascripts/main.js')
-
+    script(src='javascripts/mail.js')

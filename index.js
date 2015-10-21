@@ -3,6 +3,7 @@ var path = __dirname,
     dist = path + '/dist',
     src = path + '/src',
     test = path + '/test',
+    vendor = path + '/vendor',
     wiki = path + '/wiki';
 
 module.exports = {
@@ -11,5 +12,6 @@ module.exports = {
     dist: dist,
     src: src,
     test: test,
+    vendor: vendor,
     wiki: wiki
 };
