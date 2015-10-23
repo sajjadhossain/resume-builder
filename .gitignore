@@ -1,5 +1,50 @@
+### App ###
 archive
-node_modules
-.idea
 dist
-npm-debug.log
+
+### Node ###
+logs
+*.log
+npm-debug.log*
+pids
+*.pid
+*.seed
+lib-cov
+coverage
+.grunt
+.lock-wscript
+build
+node_modules
+
+### Jetbrains ###
+*.iml
+.idea/
+/out/
+.idea_modules/
+atlassian-ide-plugin.xml
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+Icon
+._*
+
+### Bower ###
+bower.json
+component.json
+bower_components

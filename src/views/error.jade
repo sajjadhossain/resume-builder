@@ -1,0 +1,17 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+    head
+        meta(charset='utf-8')
+        title='Page Not Found'
+        link(rel='stylesheet' href='stylesheets/mail.css')
+        link(rel='stylesheet' href='stylesheets/materialize.min.css')
+        //GOOGLE FONTS
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=Exo+2:300italic,100italic,200italic,200,900italic,300,400,100,400italic,900' rel='stylesheet' type='text/css')
+block content
+    div(class='container #ffffff white')
+        h4 #{error.status}
+        p(class='flow-text') #{message}
+        p(class='flow-text') Sorry, but the page you were trying to view does not exist.
+        pre #{error.stack}

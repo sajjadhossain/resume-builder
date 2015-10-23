@@ -1,0 +1,18 @@
+footer(class!= templates.footer)
+    div(class='container' id='bottom')
+        div(class='col s12 bottom-content-padding-bottom')
+            div(class!= templates.footerHeader)
+                h3(class='white-text') Drop a note
+                    span(class='hide-on-small-only white-text smaller right') *OPTIONAL
+            h4(class='show-on-small hide-on-med-and-up white-text smaller right') *OPTIONAL
+    include hello
+    div(class!= templates.footerCopyright)
+        div(class='container')
+            span(class='grey-text text-lighten-4') #{year}
+            a(class='grey-text text-lighten-4 right' href!= git) GITHUB
+    //SCRIPTS
+    script(src='javascripts/vendor/materialize.min.js')
+    script(src='javascripts/vendor/init.js')
+    script(src='javascripts/plugins.js')
+    script(src='javascripts/main.js')
+    script(src='javascripts/mail.js')

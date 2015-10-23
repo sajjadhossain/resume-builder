@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    "apache-server-configs": "2.14.0",
     "archiver": "^0.14.3",
     "del": "^1.1.1",
     "glob": "^5.0.5",
@@ -30,21 +29,57 @@
     }
   },
   "homepage": "https://github.com/sajjadhossain/resume-builder",
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/sajjadhossain/resume-builder/blob/master/LICENSE.txt"
-  },
+  "license": "MIT",
   "name": "resume-builder",
   "private": true,
   "scripts": {
     "build": "gulp build",
-    "test": "gulp archive && mocha --reporter spec --timeout 5000"
+    "test": "gulp test",
+    "start": "node ./dist/bin/www",
+    "debug": "DEBUG=app npm start"
   },
   "version": "0.0.1",
   "dependencies": {
+    "async": "^1.4.2",
+    "body-parser": "^1.14.1",
+    "bower": "^1.6.3",
+    "browserify": "^11.2.0",
+    "cookie-parser": "^1.4.0",
+    "cpr": "^0.4.3",
+    "debug": "^2.2.0",
     "express": "^4.13.3",
+    "gulp-zip": "^3.0.2",
+    "jade": "^1.11.0",
+    "makedir": "0.0.11",
     "markdown": "^0.5.0",
     "materialize-css": "^0.97.1",
-    "webdriverio": "^3.2.5"
+    "mongodb": "^2.0.46",
+    "morgan": "^1.6.1",
+    "nodemailer": "^1.8.0",
+    "require-dir": "^0.3.0",
+    "serve-favicon": "^2.3.0",
+    "webdriverio": "^3.2.5",
+    "xml2js": "^0.4.13"
+  },
+  "description": "It's 2015, you should update your resume and generate a web version using a CLI, using Templates on MarkDown.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sajjadhossain/resume-builder.git"
+  },
+  "keywords": [
+    "Resume",
+    "Builder",
+    "HTML5",
+    "CSS3",
+    "Express",
+    "Jade"
+  ],
+  "author": "Sajjad Hossain",
+  "bugs": {
+    "url": "https://github.com/sajjadhossain/resume-builder/issues"
   }
 }
