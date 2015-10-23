@@ -100,9 +100,9 @@ Current requirements, to be updated via gulp.
 
 - [x] STYLE
 - [x] TEMPLETIZE
-- [~] README
-- [~] WIKI
-- [~] DOC INIT
+- [ ] README
+- [ ] WIKI
+- [ ] DOC INIT
 - [x] DOC RENDER
 - [x] DOC ARCHIVE
 - [x] DOC SERVE
