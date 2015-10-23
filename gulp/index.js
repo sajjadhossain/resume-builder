@@ -26,9 +26,9 @@ var dirs = pkg.configs.directories;
 // | Archive tasks                                                     |
 // ---------------------------------------------------------------------
 
-gulp.task('archive:zip', ['clean-archive', 'copy:create-archive-dir'], function (done) {
+gulp.task('archive:zip', function (done) {
     var archiveName = pkg.name + '_v' + pkg.version + '.zip';
-    gulp.src(main.dist + '/**/*')
+    gulp.src(main.dist + '/*')
         .pipe(zip(archiveName))
         .pipe(gulp.dest(main.archive));
     done();
@@ -38,7 +38,7 @@ gulp.task('archive:zip', ['clean-archive', 'copy:create-archive-dir'], function 
 // | Clean tasks                                                       |
 // ---------------------------------------------------------------------
 
-gulp.task('clean', ['clean-dist', 'clean-vendor']);
+gulp.task('clean', ['clean-dist', 'clean-archive']);
 
 gulp.task('clean-archive', function (done) {
     require('del')([
@@ -52,27 +52,16 @@ gulp.task('clean-dist', function (done) {
     ], done);
 });
 
-gulp.task('clean-vendor', function (done) {
-    require('del')([
-        main.vendor
-    ], done);
-});
-
 // ---------------------------------------------------------------------
 // | Copy tasks                                                        |
 // ---------------------------------------------------------------------
 
 gulp.task('copy', function (done) {
     runSequence(
-        'clean-dist',
+        'clean',
         'copy:create-dist-dir',
         'copy:create-vendor-dirs',
         'copy:all',
-        //'copy:license',
-        //'copy:jquery',
-        //'copy:normalize',
-        //'copy:vendor-javascripts',
-        //'copy:vendor-stylesheets',
         done);
 });
 
@@ -172,7 +161,6 @@ gulp.task('lint:js', function () {
 
 gulp.task('archive', function (done) {
     runSequence(
-        'build',
         'copy:create-archive-dir',
         'archive:zip',
     done);
@@ -180,7 +168,7 @@ gulp.task('archive', function (done) {
 
 gulp.task('build', function (done) {
     runSequence(
-        ['copy', 'lint:js'],
+        ['clean', 'copy', 'lint:js'],
     done);
 });
 

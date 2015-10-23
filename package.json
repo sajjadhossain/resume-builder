@@ -34,7 +34,7 @@
   "private": true,
   "scripts": {
     "build": "gulp build",
-    "test": "gulp test",
+    "test": "mocha test/specs/**/*.js --timeout 20000",
     "start": "node ./dist/bin/www",
     "debug": "DEBUG=app npm start"
   },
@@ -44,6 +44,7 @@
     "body-parser": "^1.14.1",
     "bower": "^1.6.3",
     "browserify": "^11.2.0",
+    "chai": "^3.4.0",
     "cookie-parser": "^1.4.0",
     "cpr": "^0.4.3",
     "debug": "^2.2.0",
@@ -53,7 +54,6 @@
     "makedir": "0.0.11",
     "markdown": "^0.5.0",
     "materialize-css": "^0.97.1",
-    "mongodb": "^2.0.46",
     "morgan": "^1.6.1",
     "nodemailer": "^1.8.0",
     "require-dir": "^0.3.0",

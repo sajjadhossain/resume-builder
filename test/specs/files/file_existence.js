@@ -3,173 +3,115 @@
 var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
-
+var async = require('async');
+var main = require('./../../../index');
 var pkg = require('./../../../package.json');
-var dirs = pkg.configs.directories;
-
+var chai = require('chai');
+chai.use(require('chai-fs'));
 var expectedFilesInArchiveDir = [
     pkg.name + '_v' + pkg.version + '.zip'
 ];
 
+var filesInSrcDir = [];
 var expectedFilesInDistDir = [
-
-    '.editorconfig',
-    '.gitattributes',
-    '.gitignore',
-    '.htaccess',
+    '.DS_Store',
+    'app.js',
     'browserconfig.xml',
     'crossdomain.xml',
-    'bin/',
+    'humans.txt',
+    'robots.txt',
     'bin/www',
-    'doc/css.md',
-    'doc/extend.md',
-    'doc/html.md',
-    'doc/js.md',
-    'doc/misc.md',
+    'data/keywords.json',
+    'data/resume.json',
+    'data/resume.js',
     'doc/README.md',
     'doc/TOC.md',
+    'doc/css.md',
+    'doc/extend.md',
+    'doc/faq.md',
+    'doc/js.md',
+    'doc/html.md',
+    'doc/misc.md',
     'doc/usage.md',
-            // should be included at the end
-        'css/main.css',
-        'css/normalize.css',
-        'css/materialize.min.css',
-
-    'doc/',
-        'doc/README.md',
-        'doc/TOC.md',
-        'doc/css.md',
-        'doc/extend.md',
-        'doc/faq.md',
-        'doc/html.md',
-        'doc/js.md',
-        'doc/misc.md',
-        'doc/usage.md',
-
-    'humans.txt',
-
-    'img/',
-        'img/.gitignore',
-        'img/adcade.png',
-        'img/allhdd.png',
-        'img/amplify.png',
-        'img/comix.png',
-        'img/logo.png',
-        'img/face.png',
-        'img/withpulp.png',
-        'img/background_320.jpg',
-        'img/background_1024.jpg',
-        'img/background_2880.jpg',
-
-    'fonts/',
-    'fonts/material-design-icons/',
-    'fonts/roboto/',
-        'fonts/material-design-icons/LICENSE.txt',
-        'fonts/material-design-icons/Material-Design-Icons.eot',
-        'fonts/material-design-icons/Material-Design-Icons.svg',
-        'fonts/material-design-icons/Material-Design-Icons.ttf',
-        'fonts/material-design-icons/Material-Design-Icons.woff',
-        'fonts/material-design-icons/Material-Design-Icons.woff2',
-        'fonts/roboto/Roboto-Bold.ttf',
-        'fonts/roboto/Roboto-Bold.woff2',
-        'fonts/roboto/Roboto-Light.woff',
-        'fonts/roboto/Roboto-Medium.ttf',
-        'fonts/roboto/Roboto-Medium.woff2',
-        'fonts/roboto/Roboto-Regular.woff',
-        'fonts/roboto/Roboto-Thin.ttf',
-        'fonts/roboto/Roboto-Thin.woff2',
-        'fonts/roboto/Roboto-Bold.woff',
-        'fonts/roboto/Roboto-Light.ttf',
-        'fonts/roboto/Roboto-Light.woff2',
-        'fonts/roboto/Roboto-Medium.woff',
-        'fonts/roboto/Roboto-Regular.ttf',
-        'fonts/roboto/Roboto-Regular.woff2',
-        'fonts/roboto/Roboto-Thin.woff',
-
-    'index.html',
-    'stage.index.html',
-
-    'js/',
-        'js/main.js',
-        'js/plugins.js',
-        'js/vendor/',
-            'js/vendor/jquery-' + pkg.devDependencies.jquery + '.min.js',
-            'js/vendor/modernizr-2.8.3.min.js',
-            'js/vendor/init.js',
-            'js/vendor/materialize.min.js',
-
-    'LICENSE.txt',
-    'robots.txt'
-
+    'routes/contact.js',
+    'routes/index.js',
+    'routes/users.js',
+    'views/error.jade',
+    'views/error.html',
+    'views/index.html',
+    'views/index.jade',
+    'views/layout.jade',
+    'views/mail.html',
+    'views/mail.jade',
+    'views/includes/candidate.jade',
+    'views/includes/contact-email.html',
+    'views/includes/education.jade',
+    'views/includes/contact-email.jade',
+    'views/includes/footer.jade',
+    'views/includes/footer.html',
+    'views/includes/header.html',
+    'views/includes/header.jade',
+    'views/includes/hello.html',
+    'views/includes/hello.jade',
+    'views/includes/left.html',
+    'views/includes/links.jade',
+    'views/includes/left.jade',
+    'views/includes/objective.html',
+    'views/includes/objective.jade',
+    'views/includes/resume.jade',
+    'views/includes/right.html',
+    'views/includes/right.jade',
+    'views/includes/skills.jade',
+    'public/LICENSE.txt',
+    'public/images/adcade.png',
+    'public/images/allhdd.png',
+    'public/images/amplify.png',
+    'public/images/bg_blur_1024.jpg',
+    'public/images/bg_blur_2880.jpg',
+    'public/images/comix.png',
+    'public/images/bg_blur_320.jpg',
+    'public/images/face.png',
+    'public/images/favicon.ico',
+    'public/images/logo.png',
+    'public/images/withpulp.png',
+    'public/images/maghrib.jpg',
+    'public/stylesheets/materialize.min.css',
+    'public/stylesheets/main.css',
+    'public/stylesheets/mail.css',
+    'public/stylesheets/normalize.css',
+    'public/stylesheets/pace-theme-flat-top.css',
+    'public/javascripts/main.js',
+    'public/javascripts/mail.js',
+    'public/javascripts/plugins.js',
+    'public/javascripts/vendor/init.js',
+    'public/javascripts/vendor/jquery-1.11.3.min.js',
+    'public/javascripts/vendor/materialize.min.js',
+    'public/javascripts/vendor/modernizr-2.8.3.min.js',
+    'public/javascripts/vendor/pace.js'
 ];
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-function checkFiles(directory, expectedFiles) {
-
-    // Get the list of files from the specified directory
-    var files = require('glob').sync('**/*', {
-        'cwd': directory,
-        'dot': true,      // include hidden files
-        'mark': true      // add a `/` character to directory matches
+describe('Files from archive/', function () {
+    it(expectedFilesInArchiveDir + ' should exist', function () {
+        chai.expect(main.archive + '/' + expectedFilesInArchiveDir).to.be.a.file(expectedFilesInArchiveDir + ' does not exist');
     });
+});
 
-    // Check if all expected files are present in the
-    // specified directory, and are of the expected type
-    expectedFiles.forEach(function (file) {
+describe('Files from src/', function () {
+    var recursive = require('recursive-readdir');
 
-        var ok = false;
-        var expectedFileType = (file.slice(-1) !== '/' ? 'regular file' : 'directory');
-
-        // If file exists
-        if (files.indexOf(file) !== -1) {
-
-            // Check if the file is of the correct type
-            if (file.slice(-1) !== '/') {
-                // Check if the file is really a regular file
-                ok = fs.statSync(path.resolve(directory, file)).isFile();
-            } else {
-                // Check if the file is a directory
-                // (Since glob adds the `/` character to directory matches,
-                // we can simply check if the `/` character is present)
-                ok = (files[files.indexOf(file)].slice(-1) === '/');
-            }
-
-        }
-
-        it('"' + file + '" should be present and it should be a ' + expectedFileType, function () {
-            assert.equal(true, ok);
-        });
-
+    // ignore files named 'foo.cs' or files that end in '.html'.
+    // console log this to update files in src to dist comparison tests.
+    recursive(main.src, ['*.DS_Store'], function (err, files) {
+        // Files is an array of filename
+        filesInSrcDir.push(files);
     });
-
-    // List all files that should be NOT
-    // be present in the specified directory
-    (files.filter(function (file) {
-        return expectedFiles.indexOf(file) === -1;
-    })).forEach(function (file) {
-        it('"' + file + '" should NOT be present', function () {
-            assert(false);
+    async.each(expectedFilesInDistDir, function (value) {
+        it(value + 'should exist in dist/ ', function (done) {
+            chai.expect(main.dist + '/' + value).to.be.a.file(value + ' does not exist');
+            done();
         });
     });
 
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-function runTests() {
-
-    describe('Test if all the expected files, and only them, are present in the build directories', function () {
-
-        describe(dirs.archive, function () {
-            checkFiles(dirs.archive, expectedFilesInArchiveDir);
-        });
-
-        describe(dirs.dist, function () {
-            checkFiles(dirs.dist, expectedFilesInDistDir);
-        });
-
-    });
-
-}
-
-runTests();
+});
