@@ -4,8 +4,8 @@ var router = express.Router();
 var nodemailer = require('nodemailer');
 var jade = require('jade');
 var main = require('../../index');
+var gmail = require('../../gmail.json');
 var resumeData = require('../data/resume.json');
-var email = resumeData.email;
 var candidateName = resumeData.firstName + ' ' + resumeData.lastName;
 
 /* POST request from contact page by clicking send button to send the name, email and message to gmail account */
@@ -14,13 +14,13 @@ router.post('/send', function (req, res) {
         // providing gmail service credential
         service : 'Gmail',
         auth : {
-            user : email,
-            pass : 'Knight22'
+            user : gmail.auth.user,
+            pass : gmail.auth.pass
         }
     });
-    fs.readFile(main.dist + '/views/mail.jade', 'utf8', function (err, data) {
-        if (err) {
-            throw err;
+    fs.readFile(main.dist + '/views/mail.jade', 'utf8', function (error, data) {
+        if (error) {
+            throw error;
         }
         var fn = jade.compile(data);
         var html = fn({
@@ -31,19 +31,16 @@ router.post('/send', function (req, res) {
         });
         // setup e-mail data with unicode symbols
         var mailOptions = {
-            from: email,
+            from: gmail.auth.user,
             to: req.body.email,
-            bcc: email,
-            subject: 'Website Submission to ' + name,
+            bcc: gmail.auth.user,
+            subject: 'Website Submission to ' + candidateName,
             text: 'Name: ' + req.body.name + ' Email: ' + req.body.email + ' Message: ' + req.body.message,
             html: html
         };
-        transporter.sendMail(mailOptions, function(error, info) {
+        transporter.sendMail(mailOptions, function(error) {
             if (error) {
-                return res.render('error', {
-                    message: info.response,
-                    stack: error
-                });
+                throw error;
             }
         });
     });
