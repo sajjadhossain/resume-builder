@@ -46,7 +46,7 @@ var firstName = 'Sajjad',
         progressOut: 'progress ' + '#ffab91 deep-orange lighten-3',
         progressIn: 'determinate ' + '#dd2c00 deep-orange accent-4',
         modalButtons: 'waves-effect waves-light btn modal-trigger btn-large ' + '#dd2c00 deep-orange accent-4',
-        submitButton: 'waves-effect waves-light btn-large ' + '#dd2c00 deep-orange accent-4'
+        submitButton: 'btn-large ' + '#dd2c00 deep-orange accent-4'
     },
     skills = {
         SKILL1: {

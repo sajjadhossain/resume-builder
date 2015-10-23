@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "homepage": "https://github.com/sajjadhossain/resume-builder",
   "authors": [
-    "Sajjad Hossain <sajjad@adcade.com>"
+    "Sajjad Hossain <sajjad@withpulp.com>"
   ],
   "description": "It's 2015, you should update your resume and generate a web version using a CLI, using Templates on MarkDown.",
   "main": "index.js",

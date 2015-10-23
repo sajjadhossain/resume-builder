@@ -1,0 +1,26 @@
+- var message = false
+div.container
+    div.row
+        div(class='col s12', id='footer-form')
+            form(method = 'post', action = 'contact/send')
+                div(class='row padding-top')
+                    p.form-group(class='input-field col s12')
+                        label
+                            span(class='contact-form-labels') Name*
+                        input.name.form-control(class='white-text' type='text', name = 'name', placeholder='Enter Name')
+                    p.form-group(class='input-field col s12')
+                        label
+                            span(class='contact-form-labels') Email*
+                        input.email.form-control(class='white-text' type='email', name = 'email' placeholder='Enter Email')
+                    p.form-group(class='input-field col s12')
+                        label
+                            span(class='contact-form-labels') Message
+                        textarea.form-control(value='' placeholder='Wayne Enterprises is interested in your profile.' name='message' id='message' type='textarea' class='validate materialize-textarea contact-form-values white-text', required, message=true)
+                div(class='right')
+                    if (message === true)
+                        button(class!= templates.submitButton type='submit', disabled) Submit
+                            i(class='material-icons left') send
+                    else
+                        button(class!= templates.submitButton type='submit') Submit
+                            i(class='material-icons left') send
+

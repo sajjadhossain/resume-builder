@@ -180,6 +180,14 @@ and (max-device-width : 480px) {
 
 @media only screen
 and (min-width : 321px) {
+    body {
+        background: url(../images/bg_blur_320.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
     .first-name {
         color: #ffffff;
         letter-spacing: 0.25rem;
@@ -249,6 +257,14 @@ and (min-width : 321px) {
 
 @media only screen
 and (max-width : 320px) {
+    body {
+        background: url(../images/bg_blur_320.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
     .first-name {
         color: #ffffff;
         letter-spacing: 0.25rem;
@@ -318,7 +334,7 @@ and (max-width : 320px) {
 
 @media only screen
 and (min-device-width : 768px)
-and (max-device-width : 1024px) {
+and (max-device-width : 1224px) {
     body {
         background: url(../images/bg_blur_1024.jpg) no-repeat center center fixed;
         -webkit-background-size: cover;
@@ -365,6 +381,14 @@ and (max-device-width : 1024px) {
 and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : landscape) {
+    body {
+        background: url(../images/bg_blur_1024.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
     .first-name {
         color: #ffffff;
         letter-spacing: 0.25rem;
@@ -392,6 +416,14 @@ and (orientation : landscape) {
 and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : portrait) {
+    body {
+        background: url(../images/bg_blur_1024.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
     .first-name {
         color: #ffffff;
         letter-spacing: 0.25rem;
@@ -546,6 +578,10 @@ and (min-width : 1824px) {
 
 .padding-top {
     padding-top: 2.5rem;
+}
+
+.padding-right {
+    padding-right: 0.75rem;
 }
 
 .smaller {
