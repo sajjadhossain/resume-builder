@@ -580,6 +580,10 @@ and (min-width : 1824px) {
     padding-top: 2.5rem;
 }
 
+.padding-bottom {
+    padding-bottom: 2.5rem;
+}
+
 .padding-right {
     padding-right: 0.75rem;
 }

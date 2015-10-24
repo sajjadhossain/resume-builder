@@ -1,19 +1,17 @@
-div(class='container' id='bottom')
-    div(class!= templates.footerHeader)
-        h3(class='white-text') Drop a note
-            span(class='hide-on-small-only white-text smaller right') *OPTIONAL
-    footer(class!= templates.footer)
-        div(class='col s12 bottom-content-padding-bottom')
-            div.container
-                span(class='show-on-small hide-on-med-and-up white-text smaller right') *OPTIONAL
+div.padding-bottom
+    div#bottom.container
+        div(class!= templates.footerHeader)
+            h3.white-text Drop a note
+                span.hide-on-small-only.white-text.smaller.right *OPTIONAL
+        footer#contact-section(class!= templates.footer)
+            span.show-on-small.hide-on-med-and-up.white-text.smaller.right *OPTIONAL
             include hello
         div(class!= templates.footerCopyright)
-            div(class='container')
-                span(class='grey-text text-lighten-4') #{year}
-                a(class='grey-text text-lighten-4 right' href!= git) GITHUB
-        //SCRIPTS
-        script(src='javascripts/vendor/materialize.min.js')
-        script(src='javascripts/vendor/init.js')
-        script(src='javascripts/plugins.js')
-        script(src='javascripts/main.js')
-        script(src='javascripts/mail.js')
+            span.grey-text.text-lighten-4 #{year}
+            a.grey-text.text-lighten-4.right(href!= git) GITHUB
+//SCRIPTS
+script(src='javascripts/vendor/materialize.min.js')
+script(src='javascripts/vendor/init.js')
+script(src='javascripts/plugins.js')
+script(src='javascripts/main.js')
+script(src='javascripts/mail.js')
