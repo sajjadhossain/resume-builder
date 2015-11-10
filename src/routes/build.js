@@ -1,23 +1,36 @@
+var express = require('express');
+var fs = require('fs');
+var router = express.Router();
+var main = require('../../index');
+var gmail = require('../../gmail.json');
 var async = require('async');
+var writeson = require('writeson');
+var github = require('octonode');
+var prettydate = require('pretty-date');
+var client = github.client();
 
-var keywordsJSON = require('../data/keywords.json');
 
-var keywordsConcat = [];
+client.get('/users/sajjadhossain', {}, function (err, status, body, headers) {
 
-function produceKeywords() {
-    async.forEachOf(keywordsJSON, function(value, key, callback, err){
-        if (err) console.error(err);
-        try {
-            keywordsConcat.push(keywordsJSON[key]);
+    var created = prettydate.format(new Date(body['created_at']));
+    var updated = prettydate.format(new Date(body['updated_at']));
+    var data = {
+        user: {
+            login: body['login'],
+            avatar: body['avatar_url'],
+            link: body['html_url'],
+            followers: body['followers'],
+            publicRepos: body['public_repos'],
+            publicGists: body['public_gists'],
+            created: created,
+            updated: updated
         }
-        catch (e) {
-            return callback(e);
-        }
-        callback();
-    }, function (err) {
-        if (err) console.error(err.message);
+    };
+
+    writeson(main.src + '/data/github.json', data, function(err) {
+        if(err) return console.err(err);
     });
-}produceKeywords();
+});
 
 var d = new Date();
 var y = d.getFullYear();
@@ -30,7 +43,7 @@ var firstName = 'Sajjad',
     email = 'sajjad@withpulp.com',
     phone = '(404) 618-6382',
     title = firstName + ' ' + lastName + ' | ' + description,
-    keywords = keywordsConcat.join(),
+    keywords = 'QA, Quality Assurance, QA Analyst, Quality Assurrance Analyst, Quality Assurance Engineer, Automation Engineer, Release Engineer, Test Engineer, Software Engineer in Test, SDET',
     logo = 'images/logo.png',
     templates = {
         resumeHeader: 'card-panel ' + '#ff7043 deep-orange lighten-1 z-depth-1',
@@ -39,9 +52,9 @@ var firstName = 'Sajjad',
         skillsHeader: 'card-panel ' + 'f4511e deep-orange darken-2' + ' center',
         educationHeader: 'card-panel ' + '#e64a19 deep-orange darken-3 z-depth-1',
         experienceHeader: 'card-panel ' + '#bf360c deep-orange darken-4',
-        footer: 'page-footer ' + '#e65100 orange darken-4 z-depth-1',
+        footer: 'page-footer card-panel ' + '#e65100 orange darken-4 z-depth-1',
         footerHeader: 'card-panel ' + '#bf360c deep-orange darken-4 z-depth-1',
-        footerCopyright: 'footer-copyright ' + '#bf360c deep-orange darken-4',
+        footerCopyright: 'footer-copyright card-panel ' + '#bf360c deep-orange darken-4',
         cards: 'card-panel ' + '#fbe9e7 deep-orange lighten-5 z-depth-1',
         progressOut: 'progress ' + '#ffab91 deep-orange lighten-3',
         progressIn: 'determinate ' + '#dd2c00 deep-orange accent-4',
@@ -52,22 +65,22 @@ var firstName = 'Sajjad',
         SKILL1: {
             name: 'Full Stack',
             tags: 'NodeJS, MeteorJS, MongoDB, Express, UnderscoreJS, Browserify, CoffeeScript, npm, Bower',
-            percent: '85' + '%'
+            percent: '85'
         },
         SKILL2: {
             name: 'User Experience',
             tags: 'MaterialCSS, Foundation, Bootstrap, HTML5, CSS3, Invision, Photoshop, Illustrator, OmniGraph',
-            percent: '90' + '%'
+            percent: '90'
         },
         SKILL3: {
             name: 'Automation',
             tags: 'Mocha, Chai, Jasmine, Behat, PHPUnit, NodeUnit, Selenium, WebDriverIO, Karma, PhantomJS, CasperJS',
-            percent: '100' + '%'
+            percent: '100'
         },
         SKILL4: {
             name: 'Deployment',
             tags: 'Jenkins, TravisCI, BuildBot, Docker, Vagrant, Chef, Puppet, AWS, Linode, Digital Ocean',
-            percent: '75' + '%'
+            percent: '75'
         }
     },
     resume = {
@@ -168,4 +181,6 @@ var firstName = 'Sajjad',
         resume: resume
     };
 
-console.log(JSON.stringify(data));
+writeson(main.src + '/data/resume.json', data, function(err) {
+    if(err) return console.err(err);
+});

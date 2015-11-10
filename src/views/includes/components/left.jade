@@ -1,0 +1,18 @@
+section#resume-left-side
+    // CANDIDATE CONTACT
+    div.hide-on-small-only.show-on-large.show-on-medium
+        div(class!= templates['contactHeader'])
+            h3.white-text.center-align.remove-margin-top-bottom Contact
+    include ../resume/links
+    // CANDIDATE SKILLS
+    div(class!= templates['skillsHeader'])
+        h3.white-text.center-align.remove-margin-top-bottom Skills
+    include ../resume/skills
+    // CANDIDATE EDUCATION
+    div(class!= templates['educationHeader'])
+        h3.white-text.center-align.remove-margin-top-bottom Education
+    include ../resume/education
+    // CANDIDATE GITHUB
+    div(class!= templates['educationHeader'])
+        h3.white-text.center-align.remove-margin-top-bottom GitHub
+    include ../resume/github

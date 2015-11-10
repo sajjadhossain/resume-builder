@@ -5,10 +5,10 @@ div.padding-bottom
                 span.hide-on-small-only.white-text.smaller.right *OPTIONAL
         footer#contact-section(class!= templates.footer)
             span.show-on-small.hide-on-med-and-up.white-text.smaller.right *OPTIONAL
-            include hello
+            include ../components/hello
         div(class!= templates.footerCopyright)
             span.grey-text.text-lighten-4 #{year}
-            a.grey-text.text-lighten-4.right(href!= git) GITHUB
+            a.grey-text.text-lighten-4.right(href!= git) FORK ME
 //SCRIPTS
 script(src='javascripts/vendor/materialize.min.js')
 script(src='javascripts/vendor/init.js')
