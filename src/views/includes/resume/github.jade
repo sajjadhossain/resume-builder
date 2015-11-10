@@ -1,0 +1,22 @@
+a.remove-font-styles(href!= gitHubUserData['link'] target='_blank')
+    article(id='candidate-git')
+        div(class!= templates['cards'])
+            div.row.remove-margin-bottom
+                div.col.s12.center
+                    img.responsive-img.circle(src!= gitHubUserData['avatar'] style='width:50%')
+                div.col.s12.center
+                    h3 #{gitHubUserData['login']}
+                    p.small <strong>Since:</strong> !{gitHubUserData['created']}
+                    p.small <strong>Last Push:</strong> !{gitHubUserData['updated']}
+                    div.row
+                        div.col.s4.git-data
+                            h3 #{gitHubUserData['publicRepos']}
+                            p.smallest public repos
+                        div.col.s4.git-data
+                            h3 #{gitHubUserData['publicGists']}
+                            p.smallest public gists
+                        div.col.s4
+                            h3 #{gitHubUserData['followers']}
+                            p.smallest followers
+
+

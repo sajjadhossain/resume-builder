@@ -1,0 +1,150 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+    head
+        meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+        // PAGE
+        title Build Your Resumé
+        link(rel='shortcut icon' href!= logo)
+        // STYLESHEETS
+        link(rel='stylesheet' href='stylesheets/vendor/materialize.min.css')
+        link(rel='stylesheet' href='stylesheets/vendor/pace-theme-flat-top.css')
+        link(rel='stylesheet' href='stylesheets/normalize.css')
+        link(rel='stylesheet' href='stylesheets/build.css')
+        // JAVASCRIPTS
+        script(src='javascripts/vendor/jquery-1.11.3.min.js')
+        script(src='javascripts/vendor/wizard.js')
+        script(src='javascripts/vendor/pace.js')
+        script(src='javascripts/vendor/materialize.min.js')
+        script(src='javascripts/vendor/modernizr-2.8.3.min.js')
+        // GOOGLE FONTS
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=Exo+2:300italic,100italic,200italic,200,900italic,300,400,100,400italic,900' rel='stylesheet' type='text/css')
+block content
+    <!--[if lt IE 8]>
+    <p class='browserupgrade'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    div.container.padding-top.padding-bottom
+        div.center-align
+            h1.first-name.black-text.remove-margin-top-bottom Resumé Builder
+            p.flow-text Welcome! Assuming you started with the Git repository and followed the steps listed via either the <strong>README.md</strong> or the <strong>wiki</strong>. Follow steps 1 through 7 below to generate your own resumé.
+        div.row
+            div.col.s12
+                form
+                //include includes/form/form.html
+                //    fieldset
+                //        div#theme.card-panel
+                //            div.row.valign-wrapper
+                //                div.col.s4.valign
+                //                    div.left
+                //                div.col.s4.valign
+                //                    div.center
+                //                        h1.last-name.black-text.remove-margin-top-bottom STEP 1
+                //                div.col.s4.valign
+                //                    div.right
+                //                        i.material-icons.left.medium.next arrow_forward
+                //        div#themeInput
+                //            include includes/build/theme
+                //    fieldset
+                //        div#user.card-panel
+                //            div.row.valign-wrapper
+                //                div.col.s4.valign
+                //                    div.left
+                //                        i.material-icons.left.medium.back arrow_back
+                //                div.col.s4.valign
+                //                    div.center
+                //                        h1.last-name.black-text.remove-margin-top-bottom STEP 2
+                //                div.col.s4.valign
+                //                    div.right
+                //                        i.material-icons.left.medium.next arrow_forward
+                //        div#userInput
+                //            include includes/build/user
+                //    fieldset
+                //        div#resume.card-panel
+                //            div.row.valign-wrapper
+                //                div.col.s4.valign
+                //                    div.left
+                //                        i.material-icons.left.medium.back arrow_back
+                //                div.col.s4.valign
+                //                    div.center
+                //                        h1.last-name.black-text.remove-margin-top-bottom STEP 3
+                //                div.col.s4.valign
+                //                    div.right
+                //                        i.material-icons.left.medium.next arrow_forward
+                //        div#resumeInput
+                //            include includes/build/objective
+                fieldset
+                    div#resume.card-panel
+                        div.row.valign-wrapper
+                            div.col.s4.valign
+                                div.left
+                                    i.material-icons.left.medium.back arrow_back
+                            div.col.s4.valign
+                                div.center
+                                    h1.last-name.black-text.remove-margin-top-bottom STEP 4
+                            div.col.s4.valign
+                                div.right
+                                    //i.material-icons.left.medium.next arrow_forward
+                    div#resumeInput
+                        include includes/build/resume
+                //    ul.collapsible.popout(data-collapsible='accordion')
+                //        li
+                //            div#user.collapsible-header.hoverable
+                //                h1.last-name.black-text.remove-margin-bottom STEP 1
+                //                p.remove-margin-bottom Theme Your Resume
+                //                    i.material-icons.left.large format_paint
+                //            div.collapsible-body
+                //                div.container.padding-bottom
+                //                    include includes/build/theme
+                //        li
+                //            div#user.collapsible-header.hoverable
+                //                h1.last-name.black-text.remove-margin-bottom STEP 2
+                //                p.remove-margin-bottom Create Your Profile
+                //                    i.material-icons.left.large person
+                //            div.collapsible-body
+                //                div.container.padding-bottom
+                //                    include includes/build/user
+                //        li
+                //            div#user.collapsible-header.hoverable
+                //                h1.last-name.black-text.remove-margin-bottom STEP 3
+                //                p.remove-margin-bottom Supply Your Resumé
+                //                    i.material-icons.left.large library_books
+                //            div.collapsible-body
+                //                div.container.padding-bottom
+                //                    include includes/build/resume
+                //        li
+                //            div#user.collapsible-header.hoverable
+                //                h1.last-name.black-text.remove-margin-bottom STEP 4
+                //                p.remove-margin-bottom Supply Your Skills
+                //                    i.material-icons.left.large accessibility
+                //            div.collapsible-body
+                //                div.container.padding-bottom
+                //                    include includes/build/skills
+                //        li
+                //            div#user.collapsible-header.hoverable
+                //                h1.last-name.black-text.remove-margin-bottom STEP 5
+                //                p.remove-margin-bottom Supply Your Education
+                //                    i.material-icons.left.large school
+                //            div.collapsible-body
+                //                div.container.padding-bottom
+                //                    include includes/build/education
+                //        li
+                //            div#user.collapsible-header.hoverable
+                //                h1.last-name.black-text.remove-margin-bottom STEP 6
+                //                p.remove-margin-bottom Website Information
+                //                    i.material-icons.left.large web
+                //            div.collapsible-body
+                //                div.container.padding-bottom
+                //                    include includes/build/site
+                //        li
+                //            div#user.collapsible-header.hoverable
+                //                h1.last-name.black-text.remove-margin-bottom STEP 7
+                //                p.remove-margin-bottom Finish Resume
+                //                    i.material-icons.left.large check
+                //            div.collapsible-body
+                //                div.container.padding-bottom
+                //                    include includes/build/finish
+    script(src='javascripts/plugins.js')
+    script(src='javascripts/form.js')
+

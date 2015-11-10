@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     makedir = require('makedir'),
     async = require('async');
 
-var main = require('../index');
+var main = require('../../index');
 
 // Load all gulp plugins automatically
 // and attach them to the `plugins` object
@@ -19,7 +19,7 @@ var plugins = require('gulp-load-plugins')();
 // https://github.com/gulpjs/gulp/issues/355
 var runSequence = require('run-sequence');
 
-var pkg = require('../package.json');
+var pkg = require('../../package.json');
 var dirs = pkg.configs.directories;
 
 // ---------------------------------------------------------------------

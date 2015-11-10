@@ -123,15 +123,7 @@ textarea {
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 480px) {
-    body {
-        background: url(../images/bg_blur_320.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-
-    .first-name {
+.first-name {
         color: #ffffff;
         letter-spacing: 0.25rem;
         text-transform: uppercase;
@@ -180,14 +172,6 @@ and (max-device-width : 480px) {
 
 @media only screen
 and (min-width : 321px) {
-    body {
-        background: url(../images/bg_blur_320.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-
     .first-name {
         color: #ffffff;
         letter-spacing: 0.25rem;
@@ -257,14 +241,6 @@ and (min-width : 321px) {
 
 @media only screen
 and (max-width : 320px) {
-    body {
-        background: url(../images/bg_blur_320.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-
     .first-name {
         color: #ffffff;
         letter-spacing: 0.25rem;
@@ -335,14 +311,6 @@ and (max-width : 320px) {
 @media only screen
 and (min-device-width : 768px)
 and (max-device-width : 1224px) {
-    body {
-        background: url(../images/bg_blur_1024.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-
     h3 {
         font-size: 1.75em;
         line-height: 1.25em;
@@ -381,14 +349,6 @@ and (max-device-width : 1224px) {
 and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : landscape) {
-    body {
-        background: url(../images/bg_blur_1024.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-
     .first-name {
         color: #ffffff;
         letter-spacing: 0.25rem;
@@ -416,14 +376,6 @@ and (orientation : landscape) {
 and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : portrait) {
-    body {
-        background: url(../images/bg_blur_1024.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-
     .first-name {
         color: #ffffff;
         letter-spacing: 0.25rem;
@@ -449,14 +401,6 @@ and (orientation : portrait) {
 
 @media only screen
 and (min-width : 1224px) {
-    body {
-        background: url(../images/bg_blur_1024.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-
     .first-name {
         color: #ffffff;
         letter-spacing: 0.25rem;
@@ -511,14 +455,6 @@ and (min-width : 1224px) {
 
 @media only screen
 and (min-width : 1824px) {
-    body {
-        background: url(../images/bg_blur_2880.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-
     .first-name {
         color: #ffffff;
         letter-spacing: 0.25rem;
@@ -564,8 +500,95 @@ and (min-width : 1824px) {
 }
 
 /* ==========================================================================
+   Color Picker
+   ========================================================================== */
+
+.red {
+    color: #F44336
+}
+
+.pink {
+    color: #FF4081
+}
+
+.deep-purple {
+    color: #512DA8
+}
+
+.purple {
+    color: #E040FB
+}
+
+.indigo {
+    color: #3F51B5
+}
+
+.blue {
+    color: #3F51B5
+}
+
+.light-blue {
+    color: #03A9F4
+}
+
+.cyan {
+    color: #00BCD4
+}
+
+.teal {
+    color: #00796B
+}
+
+.green {
+    color: #4CAF50
+}
+
+.light-green {
+    color: #8BC34A
+}
+
+.lime {
+    color: #CDDC39
+}
+
+.yellow {
+    color: #FFEB3B
+}
+
+.amber {
+    color: #FFEB3B
+}
+
+.orange {
+    color: #FF9800
+}
+
+.deep-orange {
+    color: #FF5722
+}
+
+.brown {
+    color: #795548
+}
+
+.grey {
+    color: #9E9E9E
+}
+
+.blue-grey {
+    color: #9E9E9E
+}
+
+
+/* ==========================================================================
    Screen size agnostic
    ========================================================================== */
+
+.scroll {
+    height:100%;
+    overflow-x:scroll;
+    white-space: nowrap;
+}
 
 .remove-font-styles {
     color: rgba(0,0,0,0.87) !important;
@@ -629,76 +652,6 @@ and (min-width : 1824px) {
 
 .my-list-item {
     list-style-type: disc;
-}
-
-/* ==========================================================================
-   Materialize helper classes
-   ========================================================================== */
-
-/* Label color */
-.input-field label {
-    color: #ffffff;
-}
-/* Label focus color */
-.input-field input[type=text]:focus + label {
-    color: #ffd54f;
-}
-/* Label underline focus color */
-.input-field input[type=text]:focus {
-    border-bottom: 1px solid #ffd54f;
-    box-shadow: 0 1px 0 0 #ffd54f;
-}
-/* Valid color */
-.input-field input[type=text].valid {
-    border-bottom: 1px solid #4caf50;
-    box-shadow: 0 1px 0 0 #4caf50;
-}
-/* Invalid color */
-.input-field input[type=text].invalid {
-    border-bottom: 1px solid #f44336;
-    box-shadow: 0 1px 0 0 #f44336;
-}
-/* Label focus color */
-.input-field textarea[type=textarea]:focus + label {
-    color: #ffd54f;
-}
-/* Label underline focus color */
-.input-field textarea[type=textarea]:focus {
-    border-bottom: 1px solid #ffd54f;
-    box-shadow: 0 1px 0 0 #ffd54f;
-}
-/* Valid color */
-.input-field textarea[type=textarea].valid {
-    border-bottom: 1px solid #4caf50;
-    box-shadow: 0 1px 0 0 #4caf50;
-}
-/* Invalid color */
-.input-field textarea[type=textarea].invalid {
-    border-bottom: 1px solid #f44336;
-    box-shadow: 0 1px 0 0 #f44336;
-}
-/* Label focus color */
-.input-field input[type=email]:focus + label {
-    color: #ffd54f;
-}
-/* Label underline focus color */
-.input-field input[type=email]:focus {
-    border-bottom: 1px solid #ffd54f;
-    box-shadow: 0 1px 0 0 #ffd54f;
-}
-/* Valid color */
-.input-field input[type=email].valid {
-    border-bottom: 1px solid #4caf50;
-    box-shadow: 0 1px 0 0 #4caf50;
-}
-/* Invalid color */
-.input-field input[type=email].invalid {
-    border-bottom: 1px solid #f44336;
-    box-shadow: 0 1px 0 0 #4caf50;
-}
-/* Icon prefix focus color */
-.input-field .prefix.active {
-    color: #ffd54f;
 }
 
 /* ==========================================================================
