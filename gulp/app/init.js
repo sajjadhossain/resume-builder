@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var prompt = require('prompt');
 var writeson = require('writeson');
+var shell = require('shelljs');
 
 var main = require('../../index');
 
@@ -10,9 +11,17 @@ var main = require('../../index');
 // and attach them to the `plugins` object
 var plugins = require('gulp-load-plugins')();
 
+// Temporary solution until gulp 4
+// https://github.com/gulpjs/gulp/issues/355
+var runSequence = require('run-sequence');
+
 // ---------------------------------------------------------------------
 // | Init tasks                                                        |
 // ---------------------------------------------------------------------
+
+gulp.task('init:testing', function (done) {
+    shell.exec('./node_modules/.bin/selenium-standalone install', done);
+});
 
 gulp.task('init:app', function (done) {
     var schema = {
@@ -24,9 +33,6 @@ gulp.task('init:app', function (done) {
             },
             password: {
                 hidden: true,
-                required: true
-            },
-            keywords: {
                 required: true
             }
         }
@@ -55,4 +61,15 @@ gulp.task('init:app', function (done) {
         console.log('  Google Email Password: ' + result.password);
         done();
     });
+});
+
+// ---------------------------------------------------------------------
+// | Init Function                                                      |
+// ---------------------------------------------------------------------
+
+gulp.task('init', function (done) {
+    runSequence(
+        'init:testing',
+        'init:app',
+        done);
 });

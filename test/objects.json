@@ -1,0 +1,53 @@
+{
+    "step1": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#themeInput",
+        "pickAColor": "#colorPreview",
+        "pickAColorButton": "#pickAColor",
+        "bgImage": "#backgroundImage",
+        "next": "#advance2"
+    },
+    "step2": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#userInput",
+        "firstName": "#firstName",
+        "lastName": "#lastName",
+        "email": "#email",
+        "phone": "#phone",
+        "github": "#github",
+        "gmail": "#gmail",
+        "password": "#password",
+        "next": "#advance3",
+        "prev": "#reverse1"
+    },
+    "step3": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#objectiveInput",
+        "objective": "#objective",
+        "next": "#advance4",
+        "prev": "#reverse2"
+    },
+    "step4": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#skillInput",
+        "addSkillButton": "#addSkill",
+        "skillName1": "#skillName1",
+        "skillPercent1": "#skillPercent1",
+        "skillDetail1": "#skillDetail1",
+        "next": "#advance5",
+        "prev": "#reverse3"
+    },
+    "step5": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#objectiveInput",
+        "addJobButton": "#bullet",
+        "job1": "#job1",
+        "submit": "#buildMyShyt",
+        "prev": "#reverse4"
+    }
+}

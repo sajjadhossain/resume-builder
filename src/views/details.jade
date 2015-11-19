@@ -1,0 +1,53 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+    head
+        meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+        // PAGE
+        title Build Your Resumé
+        link(rel='shortcut icon' href!= logo)
+        // STYLESHEETS
+        link(rel='stylesheet' href='stylesheets/vendor/materialize.min.css')
+        link(rel='stylesheet' href='stylesheets/vendor/pace-build-theme-flat-top.css')
+        link(rel='stylesheet' href='stylesheets/normalize.css')
+        link(rel='stylesheet' href='stylesheets/build.css')
+        // JAVASCRIPTS
+        script(src='javascripts/vendor/jquery-1.11.3.min.js')
+        script(src='javascripts/vendor/wizard.js')
+        script(src='javascripts/vendor/pace.js')
+        script(src='javascripts/vendor/materialize.min.js')
+        script(src='javascripts/vendor/modernizr-2.8.3.min.js')
+        // GOOGLE FONTS
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=Exo+2:300italic,100italic,200italic,200,900italic,300,400,100,400italic,900' rel='stylesheet' type='text/css')
+    <!--[if lt IE 8]>
+    <p class='browserupgrade'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+block content
+    div.container.padding-top.padding-bottom
+        div.center-align
+            h1#reumeBuilderHeader.resume-builder.black-text.remove-margin-top-bottom Resumé Builder
+            p.flow-text.hide-on-small-only Welcome! Assuming you started with the Git repository and followed the steps listed via either the <strong>README.md</strong> or the <strong>wiki</strong>. Follow steps 1 through 7 below to generate your own resumé.
+            p.flow-text.hide-on-med-and-up Welcome! Assuming you started with the Git repository and followed the steps listed via either the <strong>README.md</strong> or the <strong>wiki</strong>. Please visit this app on a tablet or desktop, mobile coming soon!
+        div.row.hide-on-small-only
+            div.col.s12
+                form#mainInfo(method = 'post', action = 'build/create')
+                    fieldset#jobs
+                        .card-panel
+                            div.center
+                                h1#step4.step.black-text.remove-margin-top-bottom STEP 5
+                        div#resumeInput
+                            include includes/build/resume
+                        #controls.card-panel
+                            div.row.valign-wrapper.remove-margin-bottom
+                                div.col.s6.valign
+                                    div.left
+                                        a#cancel.btn-large.red.white-text(href='/build') Reset
+                                div.col.s6.valign
+                                    div.right
+                                        button#buildMyShyt.btn-large(onclick='consoleTheme()', type='submit') Submit
+    script(src='javascripts/plugins.js')
+    script(src='javascripts/main.js')
+    script(src='javascripts/form.js')
+    script(src='javascripts/job.js')

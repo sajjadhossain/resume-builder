@@ -2,8 +2,8 @@ article(id='candidate-skills')
     div(class!= templates['cards'])
         for skill in skills
             - var skillPercent = skill.percent;
-            div(class='tooltipped' data-position='bottom' data-delay='10' data-tooltip!= skillPercent)
+            div(class='tooltipped' data-position='bottom' data-delay='10' data-tooltip!= skillPercent + '%')
                 p(class='flow-text remove-margin truncate') #{skill.name}
                 p(class='smaller truncate') #{skill.tags}
                 div(class!= templates['progressOut'])
-                    div(class!= templates['progressIn'] style='width:' + skillPercent)
+                    div(class!= templates['progressIn'] style='width:' + skillPercent + '%')
