@@ -88,17 +88,45 @@ block content
                                 div.col.s6.valign
                                     div.right
                                         i#advance5.material-icons.left.medium.next arrow_forward
-                    fieldset#jobs
+                    fieldset#education
                         .card-panel
                             div.center
                                 h1#step5.step.black-text.remove-margin-top-bottom STEP 5
+                        div#educationInput
+                            include includes/build/education
+                        #controls.card-panel
+                            div.row.valign-wrapper.remove-margin-bottom
+                                div.col.s6.valign
+                                    div.left
+                                        i#reverse4.material-icons.left.medium.back arrow_back
+                                div.col.s6.valign
+                                    div.right
+                                        i#advance6.material-icons.left.medium.next arrow_forward
+                    fieldset#site
+                        .card-panel
+                            div.center
+                                h1#step6.step.black-text.remove-margin-top-bottom STEP 6
+                        div#sitesInput
+                            include includes/build/site
+                        #controls.card-panel
+                            div.row.valign-wrapper.remove-margin-bottom
+                                div.col.s6.valign
+                                    div.left
+                                        i#reverse5.material-icons.left.medium.back arrow_back
+                                div.col.s6.valign
+                                    div.right
+                                        i#advance7.material-icons.left.medium.next arrow_forward
+                    fieldset#jobs
+                        .card-panel
+                            div.center
+                                h1#step7.step.black-text.remove-margin-top-bottom STEP 7
                         div#resumeInput
                             include includes/build/jobs
                         #controls.card-panel
                             div.row.valign-wrapper.remove-margin-bottom
                                 div.col.s6.valign
                                     div.left
-                                        i#reverse4.material-icons.left.medium.back arrow_back
+                                        i#reverse6.material-icons.left.medium.back arrow_back
                                 div.col.s6.valign
                                     div.right
                                         button#buildMyShyt.btn-large(onclick='consoleTheme()', type='submit') Submit

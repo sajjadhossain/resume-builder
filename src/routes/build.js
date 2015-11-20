@@ -11,15 +11,58 @@ router.get('/', function(req, res) {
 
 /* POST users listing. */
 router.post('/create', function(req, res) {
-    var skillNames = [];
-    for (var i = 1; i < req.body['count-skill']; i++){
-        skillNames.push(req.body['skillName' + i]);
 
-        //async.forEach()
-        //var skills = {
-        //    req.body['skillName' + skillCount]
-        //}
-    }
+    // Count and do something with each skill
+    var maxSkills = req.body['count-skill'];
+    var countSkills = [];
+    var skills = {};
+    for (
+        var i = 0;
+            i < parseInt(maxSkills) + 1;
+            i++
+    ){countSkills.push(i);}
+    async.forEach(countSkills, function(int) {
+        skills['skill' + int] = {
+            name: req.body['skillName' + int],
+            percent: req.body['skillPercent' + int],
+            detail: req.body['skillDetail' + int]
+        }
+    });
+
+    // Count and do something with each school
+    var maxSchools = req.body['count-school'];
+    var countSchools = [];
+    var schools = {};
+    for (
+        var t = 0;
+        t < parseInt(maxSchools) + 1;
+        t++
+    ){countSchools.push(t);}
+    async.forEach(countSchools, function(int) {
+        schools['school' + int] = {
+            name: req.body['schoolName' + int],
+            location: req.body['schoolLocation' + int],
+            study: req.body['schoolStudy' + int],
+            from: req.body['schoolFrom' + int],
+            to: req.body['schoolTo' + int]
+        }
+    });
+
+    // Count and do something with each job
+    var maxJobs = req.body['count-job'];
+    var countJobs = [];
+    var jobs = {};
+    for (
+        var n = 0;
+        n < parseInt(maxJobs) + 1;
+        n++
+    ){countJobs.push(n);}
+    async.forEach(countJobs, function(int) {
+        jobs['job' + int] = {
+            name: req.body['job' + int]
+        }
+    });
+
     var data = {
         background: req.body.background,
         backgroundImage: req.body.backgroundImage,
@@ -31,28 +74,13 @@ router.post('/create', function(req, res) {
         gmail: req.body.gmail,
         gmailPassword: req.body.gmailPassword,
         objective: req.body.objective,
-        skills: {
-            skill1: {
-                skillName1: req.body.skillName1,
-                skillPercent1: req.body.skillPercent1,
-                skillDetail1: req.body.skillDetail1
-            },
-            skill2: {
-                skillName2: req.body.skillName2,
-                skillPercent2: req.body.skillPercent2,
-                skillDetail2: req.body.skillDetail2
-            }
-        },
-        jobs: {
-            job1: req.body.job1,
-            job2: req.body.job2,
-            job3: req.body.job3
-        }
+        skills: skills,
+        education: schools,
+        jobs: jobs
     };
-    console.log(skillNames);
-    //writeson(main.src + '/data/build.json', data, function(err) {
-    //    if(err) return console.err(err);
-    //});
+    writeson(main.src + '/data/build.json', data, function(err) {
+        if(err) return console.err(err);
+    });
     res.redirect('back');
 });
 

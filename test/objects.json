@@ -35,19 +35,43 @@
         "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
         "step": "#skillInput",
         "addSkillButton": "#addSkill",
-        "skillName1": "#skillName1",
-        "skillPercent1": "#skillPercent1",
-        "skillDetail1": "#skillDetail1",
+        "skillName1": "#skillName0",
+        "skillPercent1": "#skillPercent0",
+        "skillDetail1": "#skillDetail0",
         "next": "#advance5",
         "prev": "#reverse3"
     },
     "step5": {
         "mainHeader": "#reumeBuilderHeader",
         "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#educationInput",
+        "addJobButton": "#addSchool",
+        "schoolName0": "#schoolName0",
+        "schoolLocation0": "#schoolLocation0",
+        "schoolStudy0": "#schoolStudy0",
+        "schoolFrom1": "#schoolFrom0",
+        "schoolTo1": "#schoolTo0",
+        "next": "#advance6",
+        "prev": "#reverse4"
+    },
+    "step6": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#sitesInput",
+        "host": "#host",
+        "website": "#website",
+        "siteDescription": "#siteDescription",
+        "keywords": "#keywords",
+        "next": "#advance7",
+        "prev": "#reverse5"
+    },
+    "step7": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
         "step": "#objectiveInput",
         "addJobButton": "#bullet",
-        "job1": "#job1",
+        "job1": "#job0",
         "submit": "#buildMyShyt",
-        "prev": "#reverse4"
+        "prev": "#reverse6"
     }
 }

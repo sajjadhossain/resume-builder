@@ -48,6 +48,7 @@
     "browserify": "^11.2.0",
     "chai": "^1.6.1",
     "chai-fs": "^0.1.0",
+    "chai-json-schema": "^1.2.0",
     "chromedriver": "^2.20.0",
     "cookie-parser": "^1.4.0",
     "debug": "^2.2.0",

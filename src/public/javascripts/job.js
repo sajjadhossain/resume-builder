@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var next = 1;
+    var next = 0;
     $('.add-skill').click(function(e){
         e.preventDefault();
         var addto = '#skill';
@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
         $(addto).after(newInput);
         $(addRemove).after(removeButton);
         $('#skill' + next).attr('data-source',$(addto).attr('data-source'));
-        $('#count-skill').val(next);
-        $('.remove-job').click(function(e){
+        document.getElementById('count-skill').value = next;
+        $('.remove-skill').click(function(e){
             e.preventDefault();
             var fieldNum = this.id.charAt(this.id.length-1);
             var fieldID = '#skill' + fieldNum;
@@ -42,7 +42,58 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 document.addEventListener('DOMContentLoaded', function() {
-    var next = 1;
+    var next = 0;
+    $('.add-school').click(function(e){
+        e.preventDefault();
+        var addto = '#school';
+        var addRemove = '#school' + (next);
+        next = next + 1;
+        var newIn =
+            '<div class="row padding-top">' +
+            '<div class="col s12">' +
+            '<input id="schoolName' + next + '" placeholder="Gotham University for the Gifted" type="text" name="schoolName' + next + '" required="required" class="validate truncate"/>' +
+            '<label for="schoolName' + next + '">School Name</label>' +
+            '<input id="schoolLocation' + next + '" placeholder="Gotham, NY" type="text" name="schoolLocation' + next + '" required="required" class="validate truncate"/>' +
+            '<label for="schoolLocation' + next + '">School Location</label>' +
+            '<input id="schoolStudy' + next + '" placeholder="Business" type="text" name="schoolStudy' + next + '" required="required" class="validate truncate"/>' +
+            '<label for="schoolStudy' + next + '">Study Focus</label>' +
+            '</div>' +
+            '</div>' +
+            '<div class="row valign-wrapper">' +
+            '<div class="col s5 valign">' +
+            '<input id="schoolFrom' + next + '" placeholder="98" type="text" name="schoolFrom' + next + '" required="required" class="validate truncate"/>' +
+            '<label for="schoolFrom' + next + '">From</label>' +
+            '</div>' +
+            '<div class="col s2 valign center-align">TO</div>' +
+            '<div class="col s5 valign">' +
+            '<input id="schoolTo' + next + '" placeholder="02" type="text" name="schoolTo' + next + '" required="required" class="validate truncate"/>' +
+            '<label for="schoolTo' + next + '">To</label>' +
+            '</div>' +
+            '</div>';
+        var newInput = $(newIn);
+        var removeBtn =
+            '<div class="col s12 right-align">' +
+            '<a id="remove-school' + (next - 1) + '"type="button" class="btn-floating btn-large waves-effect waves-light remove-school red"><i class="material-icons">remove</i></a></div>' +
+            '</div>';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $('#school' + next).attr('data-source',$(addto).attr('data-source'));
+        document.getElementById('count-school').value = next;
+        $('.remove-school').click(function(e){
+            e.preventDefault();
+            var fieldNum = this.id.charAt(this.id.length-1);
+            var fieldID = '#school' + fieldNum;
+            $(this).remove();
+            $(fieldID).remove();
+        });
+        $('.add-school').click(function(e){
+
+        })
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    var next = 0;
     $('.add-job').click(function(e){
         e.preventDefault();
         var addto = '#job' + next;
@@ -62,8 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
         $(addto).after(newInput);
         $(addRemove).after(removeButton);
         $('#job' + next).attr('data-source',$(addto).attr('data-source'));
-        $('#count-job').val(next);
-
+        document.getElementById('count-job').value = next;
         $('.remove-job').click(function(e){
             e.preventDefault();
             var fieldNum = this.id.charAt(this.id.length-1);
