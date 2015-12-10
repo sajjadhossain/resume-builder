@@ -34,8 +34,10 @@
   "private": true,
   "scripts": {
     "build": "gulp build",
+    "init": "gulp init:app",
+    "init-testing": "gulp init:testing",
     "archive": "gulp archive",
-    "test": "mocha test/specs/**/*.js --timeout 20000",
+    "test": "wdio ./text/wdio.config.js",
     "start": "node ./dist/bin/www",
     "source": "node ./src/bin/www",
     "debug": "DEBUG=app npm run source"
