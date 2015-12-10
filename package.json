@@ -37,7 +37,7 @@
     "init": "gulp init:app",
     "init-testing": "gulp init:testing",
     "archive": "gulp archive",
-    "test": "wdio ./text/wdio.config.js",
+    "test": "wdio ./test/wdio.conf.js",
     "start": "node ./dist/bin/www",
     "source": "node ./src/bin/www",
     "debug": "DEBUG=app npm run source"

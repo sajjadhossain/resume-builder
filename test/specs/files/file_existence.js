@@ -14,7 +14,6 @@ var expectedFilesInArchiveDir = [
 
 var filesInSrcDir = [];
 var expectedFilesInDistDir = [
-    '.DS_Store',
     'app.js',
     'browserconfig.xml',
     'crossdomain.xml',
@@ -37,7 +36,6 @@ var expectedFilesInDistDir = [
     'routes/contact.js',
     'routes/index.js',
     'routes/users.js',
-    'public/.DS_Store',
     'public/LICENSE.txt',
     'public/images/adcade.png',
     'public/images/allhdd.png',
@@ -51,7 +49,6 @@ var expectedFilesInDistDir = [
     'public/images/logo.png',
     'public/images/maghrib.jpg',
     'public/images/withpulp.png',
-    'public/javascripts/.DS_Store',
     'public/javascripts/form.js',
     'public/javascripts/job.js',
     'public/javascripts/mail.js',
