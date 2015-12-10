@@ -8,21 +8,25 @@ It's 2015, you should update your resume and generate a web version using a CLI,
 1. Clone this repo via `git clone https://github.com/sajjadhossain/resume-builder.git`
 2. Install the dependencies `npm install` [or if you don't have Node or NPM installed](https://nodejs.org/en/download/)
 3. Build the dist/ folder `npm run build`
-4. (*) -- Build the archive/ folder `npm run archive`
-5. Serve the app `npm run start` or debug the app `npm run debug`
+4. Run `npm run init` (optionally if you want to prepare for the test suite run `npm run init:testing`)
+4. Build the archive/ folder `npm run archive`
+5. Serve the app `npm run start` or debug the just the source of the app `npm run debug`
 6. Test the repository `npm run test` (tests will fail if archive/ and dist/ are not created via steps 3 & 4.)
 
 ### Tasks
 #### NPM
 You can run the below tasks with `npm run <script>`, like `npm run build` or `npm run script`, to be updated via gulp.
 
-    "scripts": {
-        "build": "gulp",
-        "archive": "gulp archive",
-        "test": "mocha test/specs/**/*.js --timeout 20000",
-        "start": "node ./dist/bin/www",
-        "debug": "DEBUG=app npm start"
-    }
+	 "scripts": {
+	 	"build": "gulp build",
+	 	"init": "gulp init:app",
+	 	"init-testing": "gulp init:testing",
+	 	"archive": "gulp archive",
+	 	"test": "wdio ./text/wdio.config.js",
+	 	"start": "node ./dist/bin/www",
+	 	"source": "node ./src/bin/www",
+	 	"debug": "DEBUG=app npm run source"
+	 }
 
 #### Gulp
 
