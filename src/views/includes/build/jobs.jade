@@ -1,0 +1,19 @@
+div.card-panel
+    div.row.valign-wrapper
+        div.col.s8.valign
+            h3#workExperience.remove-margin-bottom Work experience
+            p.smallest (*) = OPTIONAL; Limit 10
+        div.col.s8.valign
+            i.material-icons.right.medium work
+div.card-panel
+    div.center
+        h4 Start with the most recent, ending with the earliest.
+    div.row.valign-wrapper
+        div.col.s2.center-align.valign
+            a.btn-floating.btn-large.waves-effect.waves-light.add-job(type='button')
+                i.material-icons add
+            input#count-job(type='text', name='count-job', class='hidden', value='0')
+        div.col.s10.valign#job
+            div#job0
+                input.input(autocomplete='on', name='job0', type='text', placeholder='Batman Inc.')
+                label(for='job0') Job or Company Name

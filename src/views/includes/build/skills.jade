@@ -1,0 +1,30 @@
+div.card-panel
+    div.row
+        div.col.s12
+            div.row.valign-wrapper.remove-margin-bottom
+                div.col.s8.valign
+                    h3#addSkills.remove-margin-bottom Add skills
+                    p.smallest (*) = OPTIONAL; Limit 10
+                div.col.s4.valign.right-align
+                    i.material-icons.right.medium insert_chart
+div.card-panel
+    div.center
+        h4 Start with the most recently attained skill.
+    div.row.valign-wrapper
+        div.col.s2.center-align.valign
+            a#addSkill.btn-floating.btn-large.waves-effect.waves-light.add-skill(type='button')
+                i.material-icons add
+            input#count-skill(type='text', name='count-skill', class='hidden', value='0')
+        div.col.s10.valign
+            #skill
+                div.row
+                    div.col.s8
+                        input#skillName0.validate.truncate(placeholder='Detective' type='text' name='skillName0' required)
+                        label(for='skillName0') Skill
+                    div.col.s4
+                        input#skillPercent0.validate.truncate(placeholder='85' type='text' name='skillPercent0' required)
+                        label(for='skillPercent0') Percent (%)
+                div.row.remove-margin-bottom
+                    div.col.s12
+                        textarea#skillDetail0.materialize-textarea.validate.truncate(placeholder='Database, Searching, Forensic Science, Scene Recreation, Statistical Probability' type='text' name='skillDetail0' required)
+                        label(for='skillDetail0') Things I used for said Skill

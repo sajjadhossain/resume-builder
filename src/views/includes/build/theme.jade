@@ -1,0 +1,79 @@
+div.card-panel
+    div.row.valign-wrapper
+        div.col.s8.valign
+            h3#themeYourResume.remove-margin-bottom Theme your resumé
+            p.smallest (*) = OPTIONAL
+        div.col.s8.valign
+            i.material-icons.right.medium format_paint
+div.card-panel#colorPreview
+    div.row.valign-wrapper.padding-top
+        div.col.s6.valign
+            input#background(type='hidden', value='', name='background')
+            p.flow-text.remove-margin-top Pick a main color
+                span.smallest <br /> Secondary colors are generated
+        div.col.s6.valign.right-align
+            a#pickAColor.btn-large.dropdown-button(href='#' data-activates='dropdown1') Pick a Color
+            ul.dropdown-content(id='dropdown1')
+                li.red
+                    a.white-text(onclick='setBackground("red white-text")') Red
+                li.divider
+                li.pink
+                    a.white-text(onclick='setBackground("pink white-text")') Pink
+                li.divider
+                li.deep-purple
+                    a.white-text(onclick='setBackground("deep-purple white-text")') Deep Purple
+                li.divider
+                li.purple
+                    a.white-text(onclick='setBackground("purple white-text")') Purple
+                li.divider
+                li.indigo
+                    a.white-text(onclick='setBackground("indigo white-text")') Indigo
+                li.divider
+                    li.blue
+                        a.white-text(onclick='setBackground("blue white-text")') Blue
+                li.divider
+                li.light-blue
+                    a.white-text(onclick='setBackground("light-blue white-text")') Light Blue
+                li.divider
+                li.cyan
+                    a.white-text(onclick='setBackground("cyan white-text")') Cyan
+                li.divider
+                li.teal
+                    a.white-text(onclick='setBackground("teal white-text")') Teal
+                li.divider
+                li.green
+                    a.white-text(onclick='setBackground("green white-text")') Green
+                li.divider
+                li.light-green
+                    a.white-text(onclick='setBackground("lime white-text")') Light Green
+                li.divider
+                li.lime
+                    a.black-text(onclick='setBackground("lime black-text")') Lime
+                li.divider
+                li.yellow
+                    a.black-text(onclick='setBackground("yellow black-text")') Yellow
+                li.divider
+                li.amber
+                    a.black-text(onclick='setBackground("amber black-text")') Amber
+                li.divider
+                li.orange
+                    a.black-text(onclick='setBackground("orange black-text")') Orange
+                li.divider
+                li.deep-orange
+                    a.white-text(onclick='setBackground("deep-orange white-text")') Deep Orange
+                li.divider
+                li.brown
+                    a.white-text(onclick='setBackground("brown white-text")') Brown
+                li.divider
+                li.grey
+                    a.white-text(onclick='setBackground("grey white-text")') Grey
+                li.divider
+                li.blue-grey
+                    a.white-text(onclick='setBackground("blue-grey white-text")') Blue Grey
+    div.row
+        div.col.s12
+            p.flow-text Provide a background image
+            div.row
+                div.col.s12
+                    input#backgroundImage.validate.truncate(placeholder='http://localhost:3000/images/background.jpg' type='url' name='backgroundImage' required)
+                    label(for='backgroundImage') Background Image (*) ./src/public/images/

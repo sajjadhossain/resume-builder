@@ -1,0 +1,25 @@
+div.card-panel
+    div.row.valign-wrapper
+        div.col.s8.valign
+            h3#siteDetails.remove-margin-bottom Site details
+            p.smallest (*) = OPTIONAL
+        div.col.s8.valign
+            i.material-icons.right.medium settings
+div.card-panel
+    div.row.padding-top
+        div.col.s12
+            input#host.validate(value='http://localhost:3000'  placeholder='http://localhost:3000' type='url' required)
+            label(for='host') Local Host (change to website url for production)
+    div.row
+        div.col.s12
+            input#website.validate(placeholder='http://wayneenterprises.com' type='url' required)
+            label(for='website') Website
+    div.row
+        div.col.s12
+            input#siteDescription.validate(placeholder='Batman, Billionaire, Vigilante' type='text' required)
+            label(for='siteDescription') Site Description
+    div.row
+        div.col.s12
+            textarea#keywords.materialize-textarea.validate.truncate(placeholder='Super-Hero, Batman, Bruce Wayne, Billionaire, Playboy, Dark Knight, Christopher Nolan' type='text' name='keywords' required)
+            label(for='keywords') Site Keywords
+
