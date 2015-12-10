@@ -69,7 +69,7 @@
         "mainHeader": "#reumeBuilderHeader",
         "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
         "step": "#objectiveInput",
-        "addJobButton": "#bullet",
+        "addJobButton": ".add-job",
         "job1": "#job0",
         "submit": "#buildMyShyt",
         "prev": "#reverse6"

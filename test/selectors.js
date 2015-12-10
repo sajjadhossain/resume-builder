@@ -93,9 +93,9 @@ module.exports = {
     job0Input: 'input[name="job0"]',
     job0InputValue: 'Wayne Enterprises',
     job1Input: 'input[name="job1"]',
-    job1InputValue: 'Batman Inc.',
+    job1InputValue: 'Batman Incorporated',
     job2Input: 'input[name="job2"]',
     job2InputValue: 'Starbucks',
-    bullet: "#bullet",
+    job: ".add-job",
     buildMyShyt: '#buildMyShyt'
 };

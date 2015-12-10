@@ -11,6 +11,12 @@ router.get('/', function(req, res) {
 
 /* POST users listing. */
 router.post('/create', function(req, res) {
+    // To camel case each job
+    function camelize (str) {
+        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
+            return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
+        }).replace(/\s+/g, '');
+    }
 
     // Count and do something with each skill
     var maxSkills = req.body['count-skill'];
@@ -59,7 +65,8 @@ router.post('/create', function(req, res) {
     ){countJobs.push(n);}
     async.forEach(countJobs, function(int) {
         jobs['job' + int] = {
-            name: req.body['job' + int]
+            name: req.body['job' + int],
+            camel: camelize(req.body['job' + int])
         }
     });
 
@@ -78,10 +85,11 @@ router.post('/create', function(req, res) {
         education: schools,
         jobs: jobs
     };
+
     writeson(main.src + '/data/build.json', data, function(err) {
         if(err) return console.err(err);
     });
-    res.redirect('back');
+    res.redirect('/details');
 });
 
 module.exports = router;
