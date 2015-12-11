@@ -1,7 +1,7 @@
 - var message = false
 div.row
     div#footer-form.col.s12
-        form(method = 'post', action = 'contact/send')
+        form#contact(method = 'post', action = 'contact/send')
             div.row.padding-top
                 p.form-group.input-field.col.s12
                     label
@@ -14,7 +14,7 @@ div.row
                 p.form-group.input-field.col.s12
                     label
                         span.contact-form-labels Message
-                    textarea#email.form-control.validate.materialize-textarea.contact-form-values.white-text(value='' placeholder='Wayne Enterprises is interested in your profile.' name='message' type='textarea', required, message=true)
+                    textarea#message.form-control.validate.materialize-textarea.contact-form-values.white-text(value='' placeholder='Wayne Enterprises is interested in your profile.' name='message' type='textarea', required, message=true)
             div(class='right')
-                    button(class!= templates.submitButton type='submit') Submit
+                    button#submit(class!= templates.submitButton type='submit') Submit
                         i.material-icons.left send

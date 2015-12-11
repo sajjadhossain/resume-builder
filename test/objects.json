@@ -1,0 +1,97 @@
+{
+    "step1": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#themeInput",
+        "pickAColor": "#colorPreview",
+        "pickAColorButton": "#pickAColor",
+        "bgImage": "#backgroundImage",
+        "next": "#advance2"
+    },
+    "step2": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#userInput",
+        "firstName": "#firstName",
+        "lastName": "#lastName",
+        "email": "#email",
+        "phone": "#phone",
+        "github": "#github",
+        "gmail": "#gmail",
+        "password": "#password",
+        "next": "#advance3",
+        "prev": "#reverse1"
+    },
+    "step3": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#objectiveInput",
+        "objective": "#objective",
+        "next": "#advance4",
+        "prev": "#reverse2"
+    },
+    "step4": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#skillInput",
+        "addSkillButton": "#addSkill",
+        "skillName1": "#skillName0",
+        "skillPercent1": "#skillPercent0",
+        "skillDetail1": "#skillDetail0",
+        "next": "#advance5",
+        "prev": "#reverse3"
+    },
+    "step5": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#educationInput",
+        "addJobButton": "#addSchool",
+        "schoolName0": "#schoolName0",
+        "schoolLocation0": "#schoolLocation0",
+        "schoolStudy0": "#schoolStudy0",
+        "schoolFrom1": "#schoolFrom0",
+        "schoolTo1": "#schoolTo0",
+        "next": "#advance6",
+        "prev": "#reverse4"
+    },
+    "step6": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#sitesInput",
+        "host": "#host",
+        "website": "#website",
+        "siteDescription": "#siteDescription",
+        "keywords": "#keywords",
+        "next": "#advance7",
+        "prev": "#reverse5"
+    },
+    "step7": {
+        "mainHeader": "#reumeBuilderHeader",
+        "mainInstructions": "/html/body/div[2]/div[1]/p[1]",
+        "step": "#objectiveInput",
+        "addJobButton": ".add-job",
+        "job1": "#job0",
+        "submit": "#buildMyShyt",
+        "prev": "#reverse6"
+    },
+    "build": {
+        "form": {
+            "bottom": "#bottom",
+            "form": "#contact",
+            "form-div": "#footer-form",
+            "nameInput": "#name",
+            "emailInput": "#email",
+            "messageInput": "#message",
+            "submit": "#submit"
+        }
+    },
+    "details": {
+        "forms": {
+            "form": "#buildDetailsForm",
+            "fieldset": "#buildDetails",
+            "input1": "#wayneEnterprises-jobTitle",
+            "input2": "#batmanIncorporated-jobTitle",
+            "input3": "#starbucks-jobTitle"
+        }
+    }
+}

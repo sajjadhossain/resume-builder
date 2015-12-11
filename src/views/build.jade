@@ -8,7 +8,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
         link(rel='shortcut icon' href!= logo)
         // STYLESHEETS
         link(rel='stylesheet' href='stylesheets/vendor/materialize.min.css')
-        link(rel='stylesheet' href='stylesheets/vendor/pace-theme-flat-top.css')
+        link(rel='stylesheet' href='stylesheets/vendor/pace-build-theme-flat-top.css')
         link(rel='stylesheet' href='stylesheets/normalize.css')
         link(rel='stylesheet' href='stylesheets/build.css')
         // JAVASCRIPTS
@@ -21,130 +21,116 @@ html(xmlns='http://www.w3.org/1999/xhtml')
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' type='text/css')
         link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css')
         link(href='http://fonts.googleapis.com/css?family=Exo+2:300italic,100italic,200italic,200,900italic,300,400,100,400italic,900' rel='stylesheet' type='text/css')
-block content
     <!--[if lt IE 8]>
     <p class='browserupgrade'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+block content
     div.container.padding-top.padding-bottom
         div.center-align
-            h1.first-name.black-text.remove-margin-top-bottom Resumé Builder
-            p.flow-text Welcome! Assuming you started with the Git repository and followed the steps listed via either the <strong>README.md</strong> or the <strong>wiki</strong>. Follow steps 1 through 7 below to generate your own resumé.
-        div.row
+            h1#reumeBuilderHeader.resume-builder.black-text.remove-margin-top-bottom Resumé Builder
+            p.flow-text.hide-on-small-only Welcome! Assuming you started with the Git repository and followed the steps listed via either the <strong>README.md</strong> or the <strong>wiki</strong>. Follow steps 1 through 7 below to generate your own resumé.
+            p.flow-text.hide-on-med-and-up Welcome! Assuming you started with the Git repository and followed the steps listed via either the <strong>README.md</strong> or the <strong>wiki</strong>. Please visit this app on a tablet or desktop, mobile coming soon!
+        div.row.hide-on-small-only
             div.col.s12
-                form
-                //include includes/form/form.html
-                //    fieldset
-                //        div#theme.card-panel
-                //            div.row.valign-wrapper
-                //                div.col.s4.valign
-                //                    div.left
-                //                div.col.s4.valign
-                //                    div.center
-                //                        h1.last-name.black-text.remove-margin-top-bottom STEP 1
-                //                div.col.s4.valign
-                //                    div.right
-                //                        i.material-icons.left.medium.next arrow_forward
-                //        div#themeInput
-                //            include includes/build/theme
-                //    fieldset
-                //        div#user.card-panel
-                //            div.row.valign-wrapper
-                //                div.col.s4.valign
-                //                    div.left
-                //                        i.material-icons.left.medium.back arrow_back
-                //                div.col.s4.valign
-                //                    div.center
-                //                        h1.last-name.black-text.remove-margin-top-bottom STEP 2
-                //                div.col.s4.valign
-                //                    div.right
-                //                        i.material-icons.left.medium.next arrow_forward
-                //        div#userInput
-                //            include includes/build/user
-                //    fieldset
-                //        div#resume.card-panel
-                //            div.row.valign-wrapper
-                //                div.col.s4.valign
-                //                    div.left
-                //                        i.material-icons.left.medium.back arrow_back
-                //                div.col.s4.valign
-                //                    div.center
-                //                        h1.last-name.black-text.remove-margin-top-bottom STEP 3
-                //                div.col.s4.valign
-                //                    div.right
-                //                        i.material-icons.left.medium.next arrow_forward
-                //        div#resumeInput
-                //            include includes/build/objective
-                fieldset
-                    div#resume.card-panel
-                        div.row.valign-wrapper
-                            div.col.s4.valign
-                                div.left
-                                    i.material-icons.left.medium.back arrow_back
-                            div.col.s4.valign
-                                div.center
-                                    h1.last-name.black-text.remove-margin-top-bottom STEP 4
-                            div.col.s4.valign
-                                div.right
-                                    //i.material-icons.left.medium.next arrow_forward
-                    div#resumeInput
-                        include includes/build/resume
-                //    ul.collapsible.popout(data-collapsible='accordion')
-                //        li
-                //            div#user.collapsible-header.hoverable
-                //                h1.last-name.black-text.remove-margin-bottom STEP 1
-                //                p.remove-margin-bottom Theme Your Resume
-                //                    i.material-icons.left.large format_paint
-                //            div.collapsible-body
-                //                div.container.padding-bottom
-                //                    include includes/build/theme
-                //        li
-                //            div#user.collapsible-header.hoverable
-                //                h1.last-name.black-text.remove-margin-bottom STEP 2
-                //                p.remove-margin-bottom Create Your Profile
-                //                    i.material-icons.left.large person
-                //            div.collapsible-body
-                //                div.container.padding-bottom
-                //                    include includes/build/user
-                //        li
-                //            div#user.collapsible-header.hoverable
-                //                h1.last-name.black-text.remove-margin-bottom STEP 3
-                //                p.remove-margin-bottom Supply Your Resumé
-                //                    i.material-icons.left.large library_books
-                //            div.collapsible-body
-                //                div.container.padding-bottom
-                //                    include includes/build/resume
-                //        li
-                //            div#user.collapsible-header.hoverable
-                //                h1.last-name.black-text.remove-margin-bottom STEP 4
-                //                p.remove-margin-bottom Supply Your Skills
-                //                    i.material-icons.left.large accessibility
-                //            div.collapsible-body
-                //                div.container.padding-bottom
-                //                    include includes/build/skills
-                //        li
-                //            div#user.collapsible-header.hoverable
-                //                h1.last-name.black-text.remove-margin-bottom STEP 5
-                //                p.remove-margin-bottom Supply Your Education
-                //                    i.material-icons.left.large school
-                //            div.collapsible-body
-                //                div.container.padding-bottom
-                //                    include includes/build/education
-                //        li
-                //            div#user.collapsible-header.hoverable
-                //                h1.last-name.black-text.remove-margin-bottom STEP 6
-                //                p.remove-margin-bottom Website Information
-                //                    i.material-icons.left.large web
-                //            div.collapsible-body
-                //                div.container.padding-bottom
-                //                    include includes/build/site
-                //        li
-                //            div#user.collapsible-header.hoverable
-                //                h1.last-name.black-text.remove-margin-bottom STEP 7
-                //                p.remove-margin-bottom Finish Resume
-                //                    i.material-icons.left.large check
-                //            div.collapsible-body
-                //                div.container.padding-bottom
-                //                    include includes/build/finish
+                form#mainInfo(method = 'post', action = 'build/create')
+                    fieldset#theme
+                        .card-panel
+                            div.center
+                                h1#step1.step.black-text.remove-margin-top-bottom STEP 1
+                        div#themeInput
+                            include includes/build/theme
+                        #controls.card-panel
+                            div.row.valign-wrapper.remove-margin-bottom
+                                div.col.s6.valign
+                                    div.left
+                                div.col.s6.valign
+                                    div.right
+                                        i#advance2.material-icons.left.medium.next arrow_forward
+                    fieldset#user
+                        .card-panel
+                            div.center
+                                h1#step2.step.black-text.remove-margin-top-bottom STEP 2
+                        div#userInput
+                            include includes/build/user
+                        #controls.card-panel
+                            div.row.valign-wrapper.remove-margin-bottom
+                                div.col.s6.valign
+                                    div.left
+                                        i#reverse1.material-icons.left.medium.back arrow_back
+                                div.col.s6.valign
+                                    div.right
+                                        i#advance3.material-icons.left.medium.next arrow_forward
+                    fieldset#objective
+                        .card-panel
+                            div.center
+                                h1#step3.step.black-text.remove-margin-top-bottom STEP 3
+                        div#objectiveInput
+                            include includes/build/objective
+                        #controls.card-panel
+                            div.row.valign-wrapper.remove-margin-bottom
+                                div.col.s6.valign
+                                    div.left
+                                        i#reverse2.material-icons.left.medium.back arrow_back
+                                div.col.s6.valign
+                                    div.right
+                                        i#advance4.material-icons.left.medium.next arrow_forward
+                    fieldset#skills
+                        .card-panel
+                            div.center
+                                h1#step4.step.black-text.remove-margin-top-bottom STEP 4
+                        div#skillInput
+                            include includes/build/skills
+                        #controls.card-panel
+                            div.row.valign-wrapper.remove-margin-bottom
+                                div.col.s6.valign
+                                    div.left
+                                        i#reverse3.material-icons.left.medium.back arrow_back
+                                div.col.s6.valign
+                                    div.right
+                                        i#advance5.material-icons.left.medium.next arrow_forward
+                    fieldset#education
+                        .card-panel
+                            div.center
+                                h1#step5.step.black-text.remove-margin-top-bottom STEP 5
+                        div#educationInput
+                            include includes/build/education
+                        #controls.card-panel
+                            div.row.valign-wrapper.remove-margin-bottom
+                                div.col.s6.valign
+                                    div.left
+                                        i#reverse4.material-icons.left.medium.back arrow_back
+                                div.col.s6.valign
+                                    div.right
+                                        i#advance6.material-icons.left.medium.next arrow_forward
+                    fieldset#site
+                        .card-panel
+                            div.center
+                                h1#step6.step.black-text.remove-margin-top-bottom STEP 6
+                        div#sitesInput
+                            include includes/build/site
+                        #controls.card-panel
+                            div.row.valign-wrapper.remove-margin-bottom
+                                div.col.s6.valign
+                                    div.left
+                                        i#reverse5.material-icons.left.medium.back arrow_back
+                                div.col.s6.valign
+                                    div.right
+                                        i#advance7.material-icons.left.medium.next arrow_forward
+                    fieldset#jobs
+                        .card-panel
+                            div.center
+                                h1#step7.step.black-text.remove-margin-top-bottom STEP 7
+                        div#resumeInput
+                            include includes/build/jobs
+                        #controls.card-panel
+                            div.row.valign-wrapper.remove-margin-bottom
+                                div.col.s6.valign
+                                    div.left
+                                        i#reverse6.material-icons.left.medium.back arrow_back
+                                div.col.s6.valign
+                                    div.right
+                                        button#buildMyShyt.btn-large(onclick='consoleTheme()', type='submit') Add Details
     script(src='javascripts/plugins.js')
+    script(src='javascripts/main.js')
     script(src='javascripts/form.js')
-
+    script(src='javascripts/job.js')

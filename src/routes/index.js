@@ -27,9 +27,4 @@ router.get('/', function(req, res) {
     res.render('index', data);
 });
 
-// GET build page
-router.get('/build', function(req, res) {
-    res.render('build');
-});
-
 module.exports = router;

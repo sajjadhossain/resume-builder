@@ -1,6 +1,1 @@
-{
-    "auth": {
-        "user": "email@domain.com",
-        "pass": "*******"
-    }
-}
+{"auth":{"email":"bwayne@gmail.com","password":"batcave"}}

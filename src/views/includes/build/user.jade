@@ -1,0 +1,34 @@
+div.card-panel
+    div.row.valign-wrapper
+        div.col.s8.valign
+            h3#createYourProfile.remove-margin-bottom Create your profile
+            p.smallest (*) = OPTIONAL
+        div.col.s8.valign
+            i.material-icons.right.medium person
+div.card-panel
+    div.row
+        div.col.s6
+            input#firstName.validate.truncate(placeholder='Bruce' type='text' name='firstName' required)
+            label(for='firstName') First Name
+        div.col.s6
+            input#lastName.validate.truncate(placeholder='Wayne' type='text' name='lastName' required)
+            label(for='lastName') Last Name
+    div.row
+        div.col.s6
+            input#email.validate.truncate(placeholder='bwayne@gmail.com' type='email' name='emailAddress' required)
+            label(for='email') Email Address
+        div.col.s6
+            input#phone.validate.truncate(placeholder='555-123-4567' type='tel' name='phoneNumber' required)
+            label(for='phone') Phone Number (*)
+    div.row
+        div.col.s12
+            input#github.validate.truncate(placeholder='batman' type='text' name='gitHub')
+            label(for='email') GitHub Username (*)
+    div.row
+        div.col.s12
+            input#gmail.validate.truncate(placeholder='bwayne@gmail.com' type='email' name='gmail' required)
+            label(for='gmail') Google Email Address (Gmail)
+    div.row
+        div.col.s12
+            input#password.validate.truncate(placeholder='bats' type='password' name='gmailPassword' required)
+            label(for='gmailPassword') Google Email Password (Gmail)

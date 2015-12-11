@@ -10,6 +10,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var contact = require('./routes/contact');
 var build = require('./routes/build');
+var details = require('./routes/details');
 var app = express();
 
 // view engine setup
@@ -27,7 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/contact', contact);
-//app.use('/build', build);
+app.use('/build', build);
+app.use('/details', details);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

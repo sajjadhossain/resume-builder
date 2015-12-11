@@ -1,8 +1,6 @@
 ### App ###
 archive
 dist
-src/views/*.html
-src/views/**/*.html
 gmail.json
 .vagrant
 

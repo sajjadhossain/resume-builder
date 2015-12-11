@@ -5,7 +5,7 @@ var path = require('path');
 
 var gulp = require('gulp'),
     zip = require('gulp-zip'),
-    cpr = require('cpr').cpr,
+    shell = require('shelljs'),
     makedir = require('makedir'),
     async = require('async');
 
@@ -59,20 +59,15 @@ gulp.task('clean-dist', function (done) {
 gulp.task('copy', function (done) {
     runSequence(
         'clean',
-        'copy:create-dist-dir',
-        'copy:create-vendor-dirs',
+        //'copy:create-dist-dir',
+        //'copy:create-vendor-dirs',
         'copy:all',
         done);
 });
 
 gulp.task('copy:all', function () {
-    return cpr(main.src, main.dist, {
-        deleteFirst: false, //Delete "to" before
-        overwrite: true, //If the file exists, overwrite it
-        confirm: true //After the copy, stat all the copied files to make sure they are there
-    }, function(err) {
-        if (err) console.error(err);
-    });
+    // This is shell, but its just reliable other modules ended up buggy
+    shell.exec('cp -r ' + main.src + ' ' + main.dist)
 });
 
 // ---------------------------------------------------------------------

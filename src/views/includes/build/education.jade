@@ -1,0 +1,33 @@
+div.card-panel
+    div.row
+        div.col.s12
+            div.row.valign-wrapper.remove-margin-bottom
+                div.col.s8.valign
+                    h3#addEducation.remove-margin-bottom Add Education
+                    p.smallest (*) = OPTIONAL; Limit 5
+                div.col.s4.valign.right-align
+                    i.material-icons.right.medium school
+div.card-panel
+    div.center
+        h4 Start with the most recent, ending with the earliest.
+    div.row.valign-wrapper
+        div.col.s2.center-align.valign
+            a#addSchool.btn-floating.btn-large.waves-effect.waves-light.add-school(type='button')
+                i.material-icons add
+            input#count-school(type='text', name='count-school', class='hidden', value='0')
+        div.col.s10.valign
+            #school
+                input#schoolName0.validate.truncate(placeholder='Gotham University for the Gifted' type='text' name='schoolName0' required)
+                label(for='schoolName0') School Name
+                input#schoolLocation0.validate.truncate(placeholder='Gotham, NY' type='text' name='schoolLocation0' required)
+                label(for='schoolLocation0') School Location
+                input#schoolStudy0.validate.truncate(placeholder='Business' type='text' name='schoolStudy0' required)
+                label(for='schoolStudy0') Study Focus
+                div.row.valign-wrapper
+                    div.col.s5.valign
+                        input#schoolFrom0.validate.truncate(placeholder='98' type='text' name='schoolFrom0' required)
+                        label(for='schoolFrom0') From
+                    div.col.s2.valign.center-align TO
+                    div.col.s5.valign
+                        input#schoolTo0.validate.truncate(placeholder='02' type='text' name='schoolTo0' required)
+                        label(for='schoolTo0') To
