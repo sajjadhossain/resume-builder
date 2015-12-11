@@ -30,21 +30,11 @@ block content
             h1#reumeBuilderHeader.resume-builder.black-text.remove-margin-top Resumé Builder
         div.row.hide-on-small-only
             div.col.s12
-                form#mainInfo(method = 'post', action = 'build/create')
-                    fieldset#jobs
-                        .card-panel
-                            div.center
-                                h1#step4.step.black-text.remove-margin-top-bottom Step 8
-                        div#resumeInput
-                            include includes/build/resume
-                        #controls.card-panel
-                            div.row.valign-wrapper.remove-margin-bottom
-                                div.col.s6.valign
-                                    div.left
-                                        a#cancel.btn-large.red.white-text(href='/build') Reset
-                                div.col.s6.valign
-                                    div.right
-                                        button#buildMyShyt.btn-large(onclick='consoleTheme()', type='submit') Submit
+                .card-panel
+                    div.center
+                        h1#step8.step.black-text.remove-margin-top-bottom Step 8
+                div#resumeInput
+                    include includes/build/resume
     script(src='javascripts/plugins.js')
     script(src='javascripts/main.js')
     script(src='javascripts/form.js')

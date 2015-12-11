@@ -58,7 +58,7 @@ module.exports = {
     passwordInput: '#password',
     passwordInputValue: 'batcave',
     objectiveInput: 'textarea[id="objective"]',
-    objectiveInputValue: 'Sometimes, I admit, I think of Bruce as a man in a costume. Then, with some gadget from his utility belt, he reminds me that he has an extraordinarily inventive mind. And how lucky I am to be able to call on him.',
+    objectiveInputValue: 'The first time I stole so that I wouldn\'t starve, yes. I lost many assumptions about the simple nature of right and wrong. And when I traveled I learned the fear before a crime and the thrill of success. But I never became one of them.',
     addSkill: "#addSkill",
     skillName1Input: '#skillName0',
     skillName1InputValue: 'Detective',

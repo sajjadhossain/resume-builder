@@ -1,17 +1,24 @@
 # Resume Builder
 It's 2015, you should update your resume and generate a web version using a CLI, using Templates on MarkDown.
 
-## Development
-### Get Started
+## Get Started
 <small>(*) = OPTIONAL</small>
 
 1. Clone this repo via `git clone https://github.com/sajjadhossain/resume-builder.git`
 2. Install the dependencies `npm install` [or if you don't have Node or NPM installed](https://nodejs.org/en/download/)
+3. Install gulp `npm install -g gulp`
 3. Build the dist/ folder `npm run build`
-4. Run `npm run init` (optionally if you want to prepare for the test suite run `npm run init:testing`)
-4. Build the archive/ folder `npm run archive`
-5. Serve the app `npm run start` or debug the just the source of the app `npm run debug`
-6. Test the repository `npm run test` (tests will fail if archive/ and dist/ are not created via steps 3 & 4.)
+4. Run `npm run init`
+5. Build the archive/ folder `npm run archive`
+6. Serve the app `npm run start` or debug the just the source of the app `npm run debug`
+7. Test the repository `npm run test` (tests will fail if archive/ and dist/ are not created via steps 3 & 4.)
+
+## Run the Tests
+
+1. `npm run init:testing`
+2. `npm install -g webdriverio`
+3. `npm install -g mocha`
+3. `npm run test`
 
 ### Tasks
 #### NPM

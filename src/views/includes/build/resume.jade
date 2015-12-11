@@ -1,65 +1,71 @@
-for job in jobs
-    - var name = job.name;
-    - var camel = job.camel;
-    div.card-panel
-        div.row.valign-wrapper
-            div.col.s8.valign
-                h3.remove-margin-bottom !{name}
-                p.truncate Add details about your time at !{name}
-                p.smallest (*) = OPTIONAL
-            div.col.s8.valign
-                i.material-icons.right.medium work
-    div.card-panel
-        div.row(id!= 'job-' + camel)
-           div.col.s12
-               input.validate.truncate(placeholder='Vigilante' type='text' id!= camel + '-jobTitle', name!= 'jobTitle1', required)
-               label(for!= camel + '-jobTitle') Job Title
-
-            div.row
-                div.offset-s1.col.s10
-                    div.row.valign-wrapper
-                        div.col.s8.valign.left-align
-                            span.flow-text Add a job bullet
-                        div.col.s4.valign.right-align
-                            a.btn-floating.btn-large.waves-effect.waves-light(type = 'button' class!= camel + '-addBullet', onclick='addJobBullet()')
-                                i.material-icons format_list_bulleted
-                div.offset-s1.col.s10
-                    ul.my-lists
-                        li.my-list-item Spent youth traveling the world, training to intellectual and physical perfection and learning a variety of crime-fighting skills, including chemistry, criminology, forensics, martial arts, gymnastics, disguise, and escape artistry.
-                    div(id!= camel + '-addBullets')
-                        textarea.materialize-textarea.validate.truncate(placeholder='Spent youth traveling the world, training to intellectual and physical perfection and learning a variety of crime-fighting skills, including chemistry, criminology, forensics, martial arts, gymnastics, disguise, and escape artistry.' name!= camel + '-bullet1' id!= camel + '-bullet1' required)
-                        label(for!= camel + '-bullet1') Job Bullet
-        //       div.row
-        //           div.col.s12
-        //               div.row.valign-wrapper
-        //                   div.col.s5.valign
-        //                       input#jobFrom0.validate.truncate(placeholder='98' type='text' name='jobFrom1' required)
-        //                       label(for='jobFrom1') From
-        //                   div.col.s2.valign.center-align TO
-        //                   div.col.s5.valign
-        //                       input#jobTo0.validate.truncate(placeholder='Present' type='text' name='jobTo1' required)
-        //                       label(for='jobTo1') To
-        //       div.row
-        //           div.col.s12.m6
-        //               input#jobLogo0.validate.truncate(placeholder='http://localhost:3000/images/batman-logo.png' type='url' name='jobLogo1' required)
-        //               label(for='jobLogo1') Job Logo (*) ./src/public/images/
-        //           div.col.s12.m6
-        //               input#jobLocation0.validate.truncate(placeholder='Gotham, NY' type='text' name='jobLocation1' required)
-        //               label(for='jobLocation1') Job Location
-        //       div.row
-        //           div.offset-s1.col.s10
-        //               div.center-align
-        //                   div.chip Acquired by Batman, Inc.
-        //                       i.material-icons.disabled trending_up
-        //       div.row
-        //           div.offset-s1.col.s10#additional1
-        //               span.input-append-additional
-        //                   input.validate.truncate.padding-top(placeholder='Acquired by Batman, Inc.' type='text' name!= camel + 'JobAdditional1' id!= camel + 'JobAdditional1' required)
-        //                   label(for='jobAdditional1') Job Additional (*)
-        //
-        //       div.row
-        //           div.col.s12
-        //               textarea#description0.materialize-textarea.validate.truncate(placeholder='Batman is the superhero protector of Gotham City, a man dressed like a bat who fights against evil and strikes terror into the hearts of criminals everywhere.' name='description1' required)
-        //               label(for='description1') Job Description
-
-        //input(type='hidden', id='count-bullets', value='1')
+form#buildDetailsForm(method = 'post', action = 'build/details')
+    fieldset#buildDetails
+        for job in jobs
+            - var name = job.name;
+            - var camel = job.camel;
+            div.card-panel
+                div.row.valign-wrapper
+                    div.col.s8.valign
+                        h3.remove-margin-bottom !{name}
+                        p.truncate Add details about your time at !{name}
+                        p.smallest (*) = OPTIONAL
+                    div.col.s8.valign
+                        i.material-icons.right.medium work
+                div.row
+                    div.col.s12
+                        input.validate.truncate(placeholder='Vigilante' type='text' id!= camel + '-jobTitle', name!= camel + '-jobTitle', required)
+                        label(for!= camel + '-jobTitle') Job Title
+                        div.row
+                            div.col.s12
+                                div.row.valign-wrapper
+                                    div.col.s5.valign
+                                        input.validate.truncate(placeholder='98' type='text', id!= camel + '-jobFrom', name!= camel + '-jobFrom' required)
+                                        label(for!= camel + '-jobFrom') From
+                                    div.col.s2.valign.center-align TO
+                                    div.col.s5.valign
+                                        input.validate.truncate(placeholder='Present' type='text' id!= camel + '-jobTo', name!= camel + '-jobTo' required)
+                                        label(for!= camel + '-jobTo') To
+                                div.row
+                                    div.col.s12.m6
+                                        input.validate.truncate(placeholder='http://localhost:3000/images/batman-logo.png' type='url' id!= camel + '-jobLogo', name!= camel + '-jobLogo' required)
+                                        label(for!= camel + '-jobLogo') Job Logo (*) ./src/public/images/
+                                    div.col.s12.m6
+                                        input.validate.truncate(placeholder='Gotham, NY' type='text' id!= camel + '-jobLocation', name!= camel + '-jobLocation' required)
+                                        label(for!= camel + '-jobLocation') Job Location
+                                div.row
+                                    div.offset-s1.col.s10
+                                        div.center-align
+                                            div.chip Acquired by Batman, Inc.
+                                                i.material-icons.disabled trending_up
+                                div.row
+                                    div.offset-s1.col.s10#additional1
+                                        span.input-append-additional
+                                            input.validate.truncate.padding-top(placeholder='Acquired by Batman, Inc.' type='text' name!= camel + '-jobAdditional' id!= camel + '-jobAdditional')
+                                            label(for!= camel + '-jobAdditional') Job Additional (*)
+                                div.row
+                                    div.col.s12
+                                        textarea.materialize-textarea.validate.truncate(placeholder='Batman is the superhero protector of Gotham City, a man dressed like a bat who fights against evil and strikes terror into the hearts of criminals everywhere.' name!= camel + '-jobDescription' id!= camel + '-jobDescription', required)
+                                        label(for!= camel + '-jobDescription') Job Description
+                    div.row
+                        div.offset-s1.col.s10
+                            div.row.valign-wrapper
+                                div.col.s8.valign.left-align
+                                    span.flow-text Add a job bullet
+                                div.col.s4.valign.right-align
+                                    a.btn-floating.btn-large.waves-effect.waves-light(type = 'button' class!= camel + '-addBullet', onclick='addJobBullet()')
+                                        i.material-icons format_list_bulleted
+                        div.offset-s1.col.s10
+                            ul.my-lists
+                                li.my-list-item Spent youth traveling the world, training to intellectual and physical perfection and learning a variety of crime-fighting skills, including chemistry, criminology, forensics, martial arts, gymnastics, disguise, and escape artistry.
+                            div(id!= camel + '-bullets')
+                                textarea.materialize-textarea.validate.truncate(placeholder='Spent youth traveling the world, training to intellectual and physical perfection and learning a variety of crime-fighting skills, including chemistry, criminology, forensics, martial arts, gymnastics, disguise, and escape artistry.' name!= camel + '-bullet1' id!= camel + '-bullet1' required)
+                                label(for!= camel + '-bullet1') Job Bullet
+                                input(type='hidden', id!= camel + '-countBullets', value='1')
+        #controls.card-panel
+            div.row.valign-wrapper.remove-margin-bottom
+                div.col.s6.valign
+                    div.left
+                        a#cancel.btn-large.red.white-text(href='/build') Reset
+                div.col.s6.valign
+                    div.right
+                        button#submitDetails.btn-large(type='submit') Submit

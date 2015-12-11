@@ -1,7 +1,7 @@
 {
     "firstName": "Sajjad",
     "lastName": "Hossain",
-    "host": "http://cv.sajjad.nyc",
+    "host": "http://localhost:3000",
     "website": "http://metaterran.com",
     "git": "https://github.com/sajjadhossain/resume-builder",
     "email": "sajjad@withpulp.com",

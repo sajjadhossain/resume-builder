@@ -88,7 +88,6 @@ var expectedFilesInDistDir = [
     'views/includes/build/theme.jade',
     'views/includes/common/footer.jade',
     'views/includes/common/header.jade',
-    'views/includes/form/form.html',
     'views/includes/resume/candidate.jade',
     'views/includes/resume/education.jade',
     'views/includes/resume/github.jade',

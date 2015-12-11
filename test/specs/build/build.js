@@ -17,5 +17,6 @@ describe('Resumé Builder', function () {
     require('./steps/step6.js');
     require('./steps/step7.js');
     require('./submit.js');
+    require('./steps/job1.js');
 });
 

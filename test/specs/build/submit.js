@@ -27,8 +27,6 @@ it('Assert JSON Matches', function (done) {
             "emailAddress",
             "phoneNumber",
             "gitHub",
-            "gmail",
-            "gmailPassword",
             "objective",
             "education",
             "skills",
@@ -51,9 +49,6 @@ it('Assert JSON Matches', function (done) {
                 "type": "string"
             },
             "phoneNumber": {
-                "type": "string"
-            },
-            "gmail": {
                 "type": "string"
             },
             "objective": {

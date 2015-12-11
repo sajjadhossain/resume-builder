@@ -73,5 +73,25 @@
         "job1": "#job0",
         "submit": "#buildMyShyt",
         "prev": "#reverse6"
+    },
+    "build": {
+        "form": {
+            "bottom": "#bottom",
+            "form": "#contact",
+            "form-div": "#footer-form",
+            "nameInput": "#name",
+            "emailInput": "#email",
+            "messageInput": "#message",
+            "submit": "#submit"
+        }
+    },
+    "details": {
+        "forms": {
+            "form": "#buildDetailsForm",
+            "fieldset": "#buildDetails",
+            "input1": "#wayneEnterprises-jobTitle",
+            "input2": "#batmanIncorporated-jobTitle",
+            "input3": "#starbucks-jobTitle"
+        }
     }
 }

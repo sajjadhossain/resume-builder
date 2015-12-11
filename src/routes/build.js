@@ -4,12 +4,12 @@ var writeson = require('writeson');
 var async = require('async');
 var main = require('../../index');
 
-/* GET users listing. */
+/* GET / */
 router.get('/', function(req, res) {
     res.render('build');
 });
 
-/* POST users listing. */
+/* POST create details. */
 router.post('/create', function(req, res) {
     // To camel case each job
     function camelize (str) {
@@ -78,18 +78,77 @@ router.post('/create', function(req, res) {
         emailAddress: req.body.emailAddress,
         phoneNumber: req.body.phoneNumber,
         gitHub: req.body.gitHub,
-        gmail: req.body.gmail,
-        gmailPassword: req.body.gmailPassword,
         objective: req.body.objective,
         skills: skills,
         education: schools,
         jobs: jobs
     };
 
+    var email = {
+        auth: {
+            email: req.body.gmail,
+            password: req.body.gmailPassword
+        }
+    };
+
+    writeson(main.path + '/gmail.example.json', email, function(err) {
+        if(err) return console.err(err);
+    });
+
     writeson(main.src + '/data/build.json', data, function(err) {
         if(err) return console.err(err);
     });
     res.redirect('/details');
+});
+
+
+
+/* POST build details. */
+router.post('/details', function(req, res) {
+    // Require new build
+    var newBuild = require(main.src + '/data/build.json');
+    // To camel case each job
+    function camelize (str) {
+        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
+            return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
+        }).replace(/\s+/g, '');
+    }
+
+    var data = {};
+    async.forEachOf(newBuild.jobs, function (value, key) {
+        //var jf = require('jsonfile'); // Requires Reading/Writing JSON
+        //var jsonStr = WEAS_ConfigFile;
+        //var obj = JSON.parse(jsonStr);
+        //obj.push({OnetimeCode : WEAS_Server_NewOneTimeCode});
+        //jf.writeFileSync(WEAS_ConfigFile, obj); // Writes object to file
+
+        var name = value.name;
+        var camel = value.camel;
+
+        data[key] = {
+            title: req.body[camel + '-jobTitle'],
+            from: req.body[camel + '-jobFrom'],
+            to: req.body[camel + '-jobTo'],
+            logo: req.body[camel + '-jobLogo'],
+            location: req.body[camel + '-jobLocation'],
+            additional: req.body[camel + '-jobAdditional'],
+            description: req.body[camel + '-jobDescription']
+            //title: req.body[camel + '-jobTitle']
+            //title: req.body[camel + '-jobTitle']
+            //title: req.body[camel + '-jobTitle']
+            //title: req.body[camel + '-jobTitle']
+            //title: req.body[camel + '-jobTitle']
+            //title: req.body[camel + '-jobTitle']
+            //title: req.body[camel + '-jobTitle']
+        };
+    });
+
+    console.log(data);
+    writeson(main.src + '/data/details.json', data, function(err) {
+        if(err) return console.err(err);
+    });
+
+    res.redirect('/build');
 });
 
 module.exports = router;
