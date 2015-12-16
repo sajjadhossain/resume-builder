@@ -3,7 +3,7 @@ form#buildDetailsForm(method = 'post', action = 'build/details')
         for job in jobs
             - var name = job.name;
             - var camel = job.camel;
-            div.card-panel
+            article.card-panel(id!= camel)
                 div.row.valign-wrapper
                     div.col.s8.valign
                         h3.remove-margin-bottom !{name}
@@ -52,15 +52,16 @@ form#buildDetailsForm(method = 'post', action = 'build/details')
                                 div.col.s8.valign.left-align
                                     span.flow-text Add a job bullet
                                 div.col.s4.valign.right-align
-                                    a.btn-floating.btn-large.waves-effect.waves-light(type = 'button' class!= camel + '-addBullet', onclick='addJobBullet()')
+                                    a.btn-floating.btn-large.waves-effect.waves-light(type = 'button' class!= camel + '-addBullet')
                                         i.material-icons format_list_bulleted
                         div.offset-s1.col.s10
                             ul.my-lists
                                 li.my-list-item Spent youth traveling the world, training to intellectual and physical perfection and learning a variety of crime-fighting skills, including chemistry, criminology, forensics, martial arts, gymnastics, disguise, and escape artistry.
+                            div
+                                textarea.materialize-textarea.validate.truncate(placeholder='Spent youth traveling the world, training to intellectual and physical perfection and learning a variety of crime-fighting skills, including chemistry, criminology, forensics, martial arts, gymnastics, disguise, and escape artistry.' name!= camel + '-bullet0' id!= camel + '-bullet0' required)
+                                label(for!= camel + '-bullet0') Job Bullet
                             div(id!= camel + '-bullets')
-                                textarea.materialize-textarea.validate.truncate(placeholder='Spent youth traveling the world, training to intellectual and physical perfection and learning a variety of crime-fighting skills, including chemistry, criminology, forensics, martial arts, gymnastics, disguise, and escape artistry.' name!= camel + '-bullet1' id!= camel + '-bullet1' required)
-                                label(for!= camel + '-bullet1') Job Bullet
-                                input(type='hidden', id!= camel + '-countBullets', value='1')
+                            input(type='hidden', id!= camel + '-countBullets', value='1')
         #controls.card-panel
             div.row.valign-wrapper.remove-margin-bottom
                 div.col.s6.valign

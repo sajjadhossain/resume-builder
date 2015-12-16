@@ -1,3 +1,10 @@
+document.addEventListener('DOMContentLoaded', function() {
+    $(' form ').wizard();
+});
+function consoleTheme() {
+    console.log('Generating!')
+}
+
 function setBackground(value) {
     var element = document.getElementById('background');
     element.value = value;

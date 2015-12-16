@@ -3,6 +3,10 @@ var router = express.Router();
 var writeson = require('writeson');
 var async = require('async');
 var main = require('../../index');
+var build = require('../data/build.json');
+var jobs = {
+    jobs: build.jobs
+};
 
 /* GET / */
 router.get('/', function(req, res) {
@@ -98,15 +102,15 @@ router.post('/create', function(req, res) {
     writeson(main.src + '/data/build.json', data, function(err) {
         if(err) return console.err(err);
     });
+
     res.redirect('/details');
 });
-
-
 
 /* POST build details. */
 router.post('/details', function(req, res) {
     // Require new build
     var newBuild = require(main.src + '/data/build.json');
+
     // To camel case each job
     function camelize (str) {
         return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
@@ -116,15 +120,9 @@ router.post('/details', function(req, res) {
 
     var data = {};
     async.forEachOf(newBuild.jobs, function (value, key) {
-        //var jf = require('jsonfile'); // Requires Reading/Writing JSON
-        //var jsonStr = WEAS_ConfigFile;
-        //var obj = JSON.parse(jsonStr);
-        //obj.push({OnetimeCode : WEAS_Server_NewOneTimeCode});
-        //jf.writeFileSync(WEAS_ConfigFile, obj); // Writes object to file
-
         var name = value.name;
         var camel = value.camel;
-
+        var bullets = {};
         data[key] = {
             title: req.body[camel + '-jobTitle'],
             from: req.body[camel + '-jobFrom'],
@@ -132,22 +130,23 @@ router.post('/details', function(req, res) {
             logo: req.body[camel + '-jobLogo'],
             location: req.body[camel + '-jobLocation'],
             additional: req.body[camel + '-jobAdditional'],
-            description: req.body[camel + '-jobDescription']
-            //title: req.body[camel + '-jobTitle']
-            //title: req.body[camel + '-jobTitle']
-            //title: req.body[camel + '-jobTitle']
-            //title: req.body[camel + '-jobTitle']
-            //title: req.body[camel + '-jobTitle']
-            //title: req.body[camel + '-jobTitle']
-            //title: req.body[camel + '-jobTitle']
+            description: req.body[camel + '-jobDescription'],
+            totalBullets: bullets
         };
+
+        async.forEach(req.body[camel + '-countBullets'], function (value, key) {
+            bullets[key] = value;
+        })
     });
+
+
 
     console.log(data);
     writeson(main.src + '/data/details.json', data, function(err) {
         if(err) return console.err(err);
     });
 
+    res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     res.redirect('/build');
 });
 
