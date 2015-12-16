@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function consoleTheme() {
     console.log('Generating!')
 }
-
 function setBackground(value) {
     var element = document.getElementById('background');
     element.value = value;

@@ -1,5 +1,5 @@
 module.exports = {
-    defaultWaitForElement: 5000,
-    async: 500,
+    defaultWaitForElement: 3000,
+    async: 250,
     defaultMsg: ' not found'
 };

@@ -91,7 +91,8 @@
             "fieldset": "#buildDetails",
             "input1": "#wayneEnterprises-jobTitle",
             "input2": "#batmanIncorporated-jobTitle",
-            "input3": "#starbucks-jobTitle"
+            "input3": "#starbucks-jobTitle",
+            "submit": "#submitDetails"
         }
     }
 }

@@ -15,7 +15,7 @@ it('Submits Form', function (done) {
         .pause(defaults.defaultWaitForElement)
         .call(done);
 });
-it('Assert JSON Matches', function (done) {
+it.skip('Assert JSON Matches', function (done) {
     var buildSchema = {
         "title": "build schema v1",
         "type": "object",

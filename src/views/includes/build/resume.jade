@@ -57,11 +57,10 @@ form#buildDetailsForm(method = 'post', action = 'build/details')
                         div.offset-s1.col.s10
                             ul.my-lists
                                 li.my-list-item Spent youth traveling the world, training to intellectual and physical perfection and learning a variety of crime-fighting skills, including chemistry, criminology, forensics, martial arts, gymnastics, disguise, and escape artistry.
-                            div
-                                textarea.materialize-textarea.validate.truncate(placeholder='Spent youth traveling the world, training to intellectual and physical perfection and learning a variety of crime-fighting skills, including chemistry, criminology, forensics, martial arts, gymnastics, disguise, and escape artistry.' name!= camel + '-bullet0' id!= camel + '-bullet0' required)
+                            div(id!= camel + '-bulletDiv0')
+                                input(type='text', class='hidden', id!= camel + '-countBullets', name!= camel + '-countBullets')
+                                textarea.materialize-textarea.validate.truncate(placeholder='Spent youth traveling the world, training to intellectual and physical perfection and learning a variety of crime-fighting skills, including chemistry, criminology, forensics, martial arts, gymnastics, disguise, and escape artistry.' name!= camel + '-bullet0' id!= camel + '-bullet0')
                                 label(for!= camel + '-bullet0') Job Bullet
-                            div(id!= camel + '-bullets')
-                            input(type='hidden', id!= camel + '-countBullets', value='1')
         #controls.card-panel
             div.row.valign-wrapper.remove-margin-bottom
                 div.col.s6.valign

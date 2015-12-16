@@ -54,6 +54,7 @@
     "chai-json-schema": "^1.2.0",
     "chromedriver": "^2.20.0",
     "cookie-parser": "^1.4.0",
+    "cron": "^1.1.0",
     "debug": "^2.2.0",
     "diskdb": "^0.1.14",
     "express": "^4.13.3",

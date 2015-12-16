@@ -13,17 +13,17 @@ document.addEventListener('DOMContentLoaded', function () {
         var next = 0;
         $(addForId).click(function (e) {
             e.preventDefault();
-            var addto = '#' + id + '-bullets';
+            var addto = '#' + id + '-bulletDiv' + next;
             next = next + 1;
             var newIn =
-                '<textarea placeholder="Spent youth traveling the world, training to intellectual and physical perfection and learning a variety of crime-fighting skills..." name="' +
+                '<div id="' + id + '-bulletDiv' + next + '"><textarea placeholder="Spent youth traveling the world, training to intellectual and physical perfection and learning a variety of crime-fighting skills..." name="' +
                 id + '-bullet' + next + '" id="' + id + '-bullet' + next + '"' +
                 'class="materialize-textarea validate truncate"></textarea>' +
-                '<label for="' + id + '-bullet' + next + '" class="active">Job Bullet</label>';
+                '<label for="' + id + '-bullet' + next + '" class="active">Job Bullet</label></div>';
             var newInput = $(newIn);
             $(addto).after(newInput);
             $(id + '-bullets' + next).attr('data-source',$(addto).attr('data-source'));
-            document.getElementById(id + '-countBullets').value = next;
+            $('#' + id + '-countBullets').val(next).text(next);
         });
     });
 });

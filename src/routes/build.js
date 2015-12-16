@@ -3,18 +3,19 @@ var router = express.Router();
 var writeson = require('writeson');
 var async = require('async');
 var main = require('../../index');
-var build = require('../data/build.json');
-var jobs = {
-    jobs: build.jobs
-};
+var db = require('diskdb');
 
 /* GET / */
 router.get('/', function(req, res) {
+    db = db.connect(main.data, ['build']);
+
     res.render('build');
 });
 
 /* POST create details. */
 router.post('/create', function(req, res) {
+    db = db.connect(main.data, ['details']);
+
     // To camel case each job
     function camelize (str) {
         return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
@@ -99,17 +100,20 @@ router.post('/create', function(req, res) {
         if(err) return console.err(err);
     });
 
-    writeson(main.src + '/data/build.json', data, function(err) {
+    writeson(main.data + '/build.json', data, function(err) {
         if(err) return console.err(err);
+        if (err === null) {
+            res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+            res.redirect('/details');
+        }
     });
-
-    res.redirect('/details');
 });
 
 /* POST build details. */
 router.post('/details', function(req, res) {
-    // Require new build
-    var newBuild = require(main.src + '/data/build.json');
+    db = db.connect(main.data, ['build']);
+    var foundJobs = db.build.find();
+    var jobs = foundJobs.jobs;
 
     // To camel case each job
     function camelize (str) {
@@ -119,10 +123,19 @@ router.post('/details', function(req, res) {
     }
 
     var data = {};
-    async.forEachOf(newBuild.jobs, function (value, key) {
-        var name = value.name;
+    var bullets = {};
+    async.forEachOf(jobs, function (value, key) {
+        // Count and do something with each job bullet
         var camel = value.camel;
-        var bullets = {};
+        var maxJobBullets = req.body[camel + '-countBullets'];
+        for (
+            var n = 0;
+            n < parseInt(maxJobBullets) + 1;
+            n++
+        ) {
+            bullets[key + 'Bullet' + n] = req.body[camel + '-bullet' + n]
+        }
+
         data[key] = {
             title: req.body[camel + '-jobTitle'],
             from: req.body[camel + '-jobFrom'],
@@ -131,23 +144,21 @@ router.post('/details', function(req, res) {
             location: req.body[camel + '-jobLocation'],
             additional: req.body[camel + '-jobAdditional'],
             description: req.body[camel + '-jobDescription'],
-            totalBullets: bullets
+            bullets: maxJobBullets
         };
-
-        async.forEach(req.body[camel + '-countBullets'], function (value, key) {
-            bullets[key] = value;
-        })
     });
 
-
-
-    console.log(data);
     writeson(main.src + '/data/details.json', data, function(err) {
         if(err) return console.err(err);
     });
 
-    res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
-    res.redirect('/build');
+    writeson(main.src + '/data/bullets.json', bullets, function(err) {
+        if (err) return console.err(err);
+        if (err === null) {
+            res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+            res.redirect('/build');
+        }
+    });
 });
 
 module.exports = router;
