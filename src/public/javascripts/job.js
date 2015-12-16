@@ -10,13 +10,15 @@ function setBackground(value) {
     $("#colorPreview").removeClass().addClass( value + ' card-panel' )
 }
 document.addEventListener('DOMContentLoaded', function() {
+    $('#countSkills').val(next).text(next);
     var next = 0;
     $('.add-skill').click(function(e){
         e.preventDefault();
-        var addto = '#skill';
+        var addto = '#skill' + next;
         var addRemove = '#skill' + (next);
         next = next + 1;
         var newIn =
+            '<div id="skill' + next + '">' +
             '<div class="row padding-top">' +
             '<div class="col s8">' +
             '<input id="skillName' + next + '" placeholder="Detective" type="text" name="skillName' + next + '" required="required" class="validate truncate"/>' +
@@ -32,17 +34,18 @@ document.addEventListener('DOMContentLoaded', function() {
             '<textarea id="skillDetail' + next + '" placeholder="Database, Searching, Forensic Science, Scene Recreation, Statistical Probability" type="text" required="required" name="skillDetail' + next + '" class="materialize-textarea validate truncate"></textarea>' +
             '<label for="skillDetail' + next + '">Things I used for said Skill  </label>' +
             '</div>' +
+            '</div>' +
             '</div>';
         var newInput = $(newIn);
         var removeBtn =
             '<div class="col s12 right-align">' +
-            '<a id="remove-skill' + (next - 1) + '"type="button" class="btn-floating btn-large waves-effect waves-light remove-job red"><i class="material-icons">remove</i></a></div>' +
+            '<a id="removeSkill' + (next - 1) + '"type="button" class="btn-floating btn-large waves-effect waves-light remove-skill red"><i class="material-icons">remove</i></a></div>' +
             '</div>';
         var removeButton = $(removeBtn);
         $(addto).after(newInput);
         $(addRemove).after(removeButton);
         $('#skill' + next).attr('data-source',$(addto).attr('data-source'));
-        document.getElementById('count-skill').value = next;
+        $('#countSkills').val(next).text(next);
         $('.remove-skill').click(function(e){
             e.preventDefault();
             var fieldNum = this.id.charAt(this.id.length-1);
@@ -54,12 +57,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 document.addEventListener('DOMContentLoaded', function() {
     var next = 0;
+    $('#countSchools').val(next).text(next);
     $('.add-school').click(function(e){
         e.preventDefault();
-        var addto = '#school';
+        var addto = '#school' + next;
         var addRemove = '#school' + (next);
         next = next + 1;
         var newIn =
+            '<div id="school' + next + '">' +
             '<div class="row padding-top">' +
             '<div class="col s12">' +
             '<input id="schoolName' + next + '" placeholder="Gotham University for the Gifted" type="text" name="schoolName' + next + '" required="required" class="validate truncate"/>' +
@@ -80,17 +85,18 @@ document.addEventListener('DOMContentLoaded', function() {
             '<input id="schoolTo' + next + '" placeholder="02" type="text" name="schoolTo' + next + '" required="required" class="validate truncate"/>' +
             '<label for="schoolTo' + next + '">To</label>' +
             '</div>' +
+            '</div>' +
             '</div>';
         var newInput = $(newIn);
         var removeBtn =
             '<div class="col s12 right-align">' +
-            '<a id="remove-school' + (next - 1) + '"type="button" class="btn-floating btn-large waves-effect waves-light remove-school red"><i class="material-icons">remove</i></a></div>' +
+            '<a id="removeSchool' + (next - 1) + '"type="button" class="btn-floating btn-large waves-effect waves-light remove-school red"><i class="material-icons">remove</i></a></div>' +
             '</div>';
         var removeButton = $(removeBtn);
         $(addto).after(newInput);
         $(addRemove).after(removeButton);
         $('#school' + next).attr('data-source',$(addto).attr('data-source'));
-        document.getElementById('count-school').value = next;
+        $('#countSchools').val(next).text(next);
         $('.remove-school').click(function(e){
             e.preventDefault();
             var fieldNum = this.id.charAt(this.id.length-1);
@@ -98,13 +104,11 @@ document.addEventListener('DOMContentLoaded', function() {
             $(this).remove();
             $(fieldID).remove();
         });
-        $('.add-school').click(function(e){
-
-        })
     });
 });
 document.addEventListener('DOMContentLoaded', function() {
     var next = 0;
+    $('#countJobs').val(next).text(next);
     $('.add-job').click(function(e){
         e.preventDefault();
         var addto = '#job' + next;
@@ -118,13 +122,13 @@ document.addEventListener('DOMContentLoaded', function() {
         var newInput = $(newIn);
         var removeBtn =
             '<div class="right">' +
-            '<a id="remove-job' + (next - 1) + '"type="button" class="btn-floating btn-large waves-effect waves-light remove-job red"><i class="material-icons">remove</i></a></div>' +
+            '<a id="removeJob' + (next - 1) + '"type="button" class="btn-floating btn-large waves-effect waves-light remove-job red"><i class="material-icons">remove</i></a></div>' +
             '</div>';
         var removeButton = $(removeBtn);
         $(addto).after(newInput);
         $(addRemove).after(removeButton);
         $('#job' + next).attr('data-source',$(addto).attr('data-source'));
-        document.getElementById('count-job').value = next;
+        $('#countJobs').val(next).text(next);
         $('.remove-job').click(function(e){
             e.preventDefault();
             var fieldNum = this.id.charAt(this.id.length-1);

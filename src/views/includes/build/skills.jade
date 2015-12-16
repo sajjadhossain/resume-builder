@@ -14,12 +14,12 @@ div.card-panel
         div.col.s2.center-align.valign
             a#addSkill.btn-floating.btn-large.waves-effect.waves-light.add-skill(type='button')
                 i.material-icons add
-            input#count-skill(type='text', name='count-skill', class='hidden', value='0')
+            input#countSkills(type='text', name='countSkills', class='hidden', value='')
         div.col.s10.valign
-            #skill
+            #skill0
                 div.row
                     div.col.s8
-                        input#skillName0.validate.truncate(placeholder='Detective' type='text' name='skillName0' required)
+                        input#skillName0.validate.truncate(placeholder='Dwetective' type='text' name='skillName0' required)
                         label(for='skillName0') Skill
                     div.col.s4
                         input#skillPercent0.validate.truncate(placeholder='85' type='text' name='skillPercent0' required)

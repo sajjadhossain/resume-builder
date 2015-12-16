@@ -19,6 +19,17 @@ it('Supplies Campaign Details: Title', function (done) {
         .pause(defaults.async)
         .call(done);
 });
+it('Supplies Campaign Details: Website', function (done) {
+    browser
+        .pause(defaults.async)
+        .setValue(selectors.job3Website, selectors.job3WebsiteValue)
+        .getValue(selectors.job3Website)
+        .then(function (text) {
+            chai.assert(text === selectors.job3WebsiteValue, 'Job Name Value is ' + text + ' --- Expected ' + selectors.job3WebsiteValue);
+        })
+        .pause(defaults.async)
+        .call(done);
+});
 it('Supplies Campaign Details: From', function (done) {
     browser
         .pause(defaults.async)

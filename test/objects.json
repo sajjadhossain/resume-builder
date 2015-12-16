@@ -16,7 +16,7 @@
         "lastName": "#lastName",
         "email": "#email",
         "phone": "#phone",
-        "github": "#github",
+        "github": "#gitHub",
         "gmail": "#gmail",
         "password": "#password",
         "next": "#advance3",
@@ -90,7 +90,7 @@
             "form": "#buildDetailsForm",
             "fieldset": "#buildDetails",
             "input1": "#wayneEnterprises-jobTitle",
-            "input2": "#batmanIncorporated-jobTitle",
+            "input2": "#batmanInc-jobTitle",
             "input3": "#starbucks-jobTitle",
             "submit": "#submitDetails"
         }

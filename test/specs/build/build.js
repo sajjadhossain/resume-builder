@@ -15,13 +15,21 @@ describe('Prepare\'s Builder', function () {
         };
         var details = {};
         var bullets = {};
+        var github = {};
+        var gmail = {};
+        writeson(main.path + '/gmail.json', gmail, function(err) {
+            if(err) return console.err(err);
+        });
+        writeson(main.data + '/github.json', github, function(err) {
+            if(err) return console.err(err);
+        });
         writeson(main.data + '/build.json', build, function(err) {
             if(err) return console.err(err);
         });
-        writeson(main.data + '/details.json', build, function(err) {
+        writeson(main.data + '/details.json', details, function(err) {
             if(err) return console.err(err);
         });
-        writeson(main.data + '/bullets.json', build, function(err) {
+        writeson(main.data + '/bullets.json', bullets, function(err) {
             if(err) return console.err(err);
         });
         browser.pause(defaults.defaultWaitForElement).call(done);
