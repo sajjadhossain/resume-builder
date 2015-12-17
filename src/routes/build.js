@@ -4,11 +4,11 @@ var writeson = require('writeson');
 var async = require('async');
 var main = require('../../index');
 var db = require('diskdb');
+
 // Instantiate git plugins
 var gitAuth;
 var prettydate = require('pretty-date');
 var github = require('octonode');
-var githubClient = github.client();
 
 // To camel case each job
 function camelize (str) {
@@ -28,13 +28,14 @@ switch (gitAuth) {
 
 /* GET /build. */
 router.get('/', function(req, res) {
+    require('./cron.js');
     db.connect(main.data, ['build']);
     res.render('build');
 });
 
 /* POST build/create */
 router.post('/create', function(req, res) {
-    gitAuth = req.body.gitHub;
+    db.connect(main.data, ['build']);
 
     // Copyright
     var date = new Date();
@@ -89,6 +90,29 @@ router.post('/create', function(req, res) {
         }
     }
 
+    // Generate Git Data
+    var client = github.client();
+    gitAuth = req.body.gitHub;
+    client.get('/users/' + gitAuth, {}, function (err, status, body, headers) {
+        var created = prettydate.format(new Date(body['created_at']));
+        var updated = prettydate.format(new Date(body['updated_at']));
+        var gitData = {
+            user: {
+                login: body['login'],
+                avatar: body['avatar_url'],
+                link: body['html_url'],
+                followers: body['followers'],
+                publicRepos: body['public_repos'],
+                publicGists: body['public_gists'],
+                created: created,
+                updated: updated
+            }
+        };
+        writeson(main.data + '/github.json', gitData, function(err) {
+            if (err) return console.err(err);
+        });
+    });
+
     var gmail = {
         auth: {
             email: req.body.gmail,
@@ -139,31 +163,8 @@ router.post('/create', function(req, res) {
             totalSchools: maxSchoolsInt + 1,
             jobs: jobs,
             totalJobs: maxJobsInt + 1
-        },
-        git: {}
+        }
     };
-
-    // Generate Git Data
-    githubClient.get('/users/' + gitAuth, {}, function (err, status, body, headers) {
-        var created = prettydate.format(new Date(body['created_at']));
-        var updated = prettydate.format(new Date(body['updated_at']));
-        var githubData = {
-            user: {
-                login: body['login'],
-                avatar: body['avatar_url'],
-                link: body['html_url'],
-                followers: body['followers'],
-                publicRepos: body['public_repos'],
-                publicGists: body['public_gists'],
-                created: created,
-                updated: updated
-            }
-        };
-        writeson(main.data + '/github.json', githubData, function (err) {
-            if (err) return console.err(err);
-            data['git'] = githubData;
-        });
-    });
 
     writeson(main.path + '/gmail.json', gmail, function(err) {
         if(err) return console.err(err);
@@ -181,7 +182,7 @@ router.post('/create', function(req, res) {
 router.post('/details', function(req, res) {
     db.connect(main.data, ['build']);
     var foundResume = db.build.find();
-    var jobs = foundResume.resume.jobs;
+    var allJobs = foundResume.resume.jobs;
     var education = foundResume.resume.education;
     var skills = foundResume.resume.skills;
     var data = {
@@ -192,13 +193,12 @@ router.post('/details', function(req, res) {
         }
     };
 
-    gitAuth = foundResume.site.gitUser;
-    async.forEachOf(jobs, function (value, key) {
+    async.forEachOf(allJobs, function (value, key) {
         // Count and do something with each job bullet
         var camel = value.camel;
         var position = value.position;
         var maxJobBullets = req.body[camel + '-countBullets'];
-        data['resume']['jobs'][key] = {
+        data['resume'].jobs[key] = {
             position: position,
             camel: camel,
             name: value.name,
@@ -218,48 +218,15 @@ router.post('/details', function(req, res) {
             n < parseInt(maxJobBullets) + 1;
             n++
         ) {
-            data['resume']['jobs'][key]['bullets'][n] = req.body[camel + '-bullet' + n];
-            data['resume']['jobs'][key]['listedItems'][n] = '<li class=\"my-list-item\">' + req.body[camel + '-bullet' + n] + '</li>';
+            data['resume'].jobs[key]['bullets'][n] = req.body[camel + '-bullet' + n];
+            data['resume'].jobs[key]['listedItems'][n] = '<li class=\"my-list-item\">' + req.body[camel + '-bullet' + n] + '</li>';
         }
-
     });
 
     writeson(main.data + '/details.json', data, function(err) {
         if(err) return console.err(err);
     });
 
-    // Cron job for github user info
-    var CronJob = require('cron').CronJob;
-    new CronJob('00 30 11 * * 1-5', function() {
-            var user = foundResume.info;
-            /*
-             * Runs every weekday (Monday through Friday)
-             * at 11:30:00 AM. It does not run on Saturday
-             * or Sunday.
-             */
-            githubClient.get('/users/' + gitAuth, {}, function (err, status, body, headers) {
-                var created = prettydate.format(new Date(body['created_at']));
-                var updated = prettydate.format(new Date(body['updated_at']));
-                var githubData = {
-                    user: {
-                        login: body['login'],
-                        avatar: body['avatar_url'],
-                        link: body['html_url'],
-                        followers: body['followers'],
-                        publicRepos: body['public_repos'],
-                        publicGists: body['public_gists'],
-                        created: created,
-                        updated: updated
-                    }
-                };
-                writeson(main.data + '/github.json', githubData, function(err) {
-                    if (err) return console.err(err);
-                });
-            });
-        },
-        false, /* Start the job right now */
-        'America/New_York' /* Time zone of this job. */
-    );
     res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     res.redirect('/build');
 });

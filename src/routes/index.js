@@ -5,13 +5,12 @@ var main = require('../../index');
 
 // GET home page
 router.get('/', function(req, res) {
-    var resumeData = require('../data/resume.json');
-    db.connect(main.data, ['github']);
+    db.connect(main.data, ['github', 'build', 'details']);
+    foundResume = db.build.find();
 
-    var foundUsers = db.github.find();
     var data = {
-        firstName: resumeData.firstName,
-        lastName: resumeData.lastName,
+        firstName: foundResume.info.firstName,
+        lastName: foundResume.info.lastName,
         host: resumeData.host,
         website: resumeData.website,
         git: resumeData.git,
@@ -28,6 +27,25 @@ router.get('/', function(req, res) {
         resume: resumeData.resume,
         gitHubUserData: foundUsers.user
     };
+    //var data = {
+    //    firstName: foundResume.info.firstName;,
+    //    lastName: resumeData.lastName,
+    //    host: resumeData.host,
+    //    website: resumeData.website,
+    //    git: resumeData.git,
+    //    email: resumeData.email,
+    //    phone: resumeData.phone,
+    //    skills: resumeData.skills,
+    //    education: resumeData.education,
+    //    keywords: resumeData.keywords,
+    //    description: resumeData.description,
+    //    title: resumeData.title,
+    //    year: resumeData.year,
+    //    logo: resumeData.logo,
+    //    templates: resumeData.templates,
+    //    resume: resumeData.resume,
+    //    gitHubUserData: foundUsers.user
+    //};
     res.render('index', data);
 
 });
