@@ -5,11 +5,6 @@ var async = require('async');
 var main = require('../../index');
 var db = require('diskdb');
 
-// Instantiate git plugins
-var gitAuth;
-var prettydate = require('pretty-date');
-var github = require('octonode');
-
 // To camel case each job
 function camelize (str) {
     return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
@@ -17,25 +12,15 @@ function camelize (str) {
     }).replace(/[\s+\.]/g, '');
 }
 
-// Switch case for Git Authentication
-switch (gitAuth) {
-    case null:
-        gitAuth = 'sajjadhossain';
-        break;
-    case 'undefined':
-        gitAuth = 'sajjadhossain';
-}
-
 /* GET /build. */
 router.get('/', function(req, res) {
-    require('./cron.js');
+    //require('./cron.js');
     db.connect(main.data, ['build']);
     res.render('build');
 });
 
 /* POST build/create */
 router.post('/create', function(req, res) {
-    db.connect(main.data, ['build']);
 
     // Copyright
     var date = new Date();
@@ -90,29 +75,6 @@ router.post('/create', function(req, res) {
         }
     }
 
-    // Generate Git Data
-    var client = github.client();
-    gitAuth = req.body.gitHub;
-    client.get('/users/' + gitAuth, {}, function (err, status, body, headers) {
-        var created = prettydate.format(new Date(body['created_at']));
-        var updated = prettydate.format(new Date(body['updated_at']));
-        var gitData = {
-            user: {
-                login: body['login'],
-                avatar: body['avatar_url'],
-                link: body['html_url'],
-                followers: body['followers'],
-                publicRepos: body['public_repos'],
-                publicGists: body['public_gists'],
-                created: created,
-                updated: updated
-            }
-        };
-        writeson(main.data + '/github.json', gitData, function(err) {
-            if (err) return console.err(err);
-        });
-    });
-
     var gmail = {
         auth: {
             email: req.body.gmail,
@@ -128,7 +90,7 @@ router.post('/create', function(req, res) {
             gitUser: req.body.gitHub,
             website: req.body.website,
             host: req.body.host,
-            logo: req.body.logo,
+            logo: req.body.websiteLogo,
             year: year
         },
         templates: {
@@ -181,12 +143,18 @@ router.post('/create', function(req, res) {
 
 /* POST build/details */
 router.post('/details', function(req, res) {
-    db.connect(main.data, ['build']);
+    db.connect(main.data, ['build', 'details']);
     var foundResume = db.build.find();
+    var site = foundResume.site;
+    var info = foundResume.info;
+    var template = foundResume.templates;
     var allJobs = foundResume.resume.jobs;
     var education = foundResume.resume.education;
     var skills = foundResume.resume.skills;
     var data = {
+        site: site,
+        info: info,
+        template: template,
         resume: {
             education: education,
             skills: skills,

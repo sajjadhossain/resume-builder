@@ -40,7 +40,7 @@ module.exports = {
     pickAColor: 'a[data-activates="dropdown1"]',
     pickPink: 'li.red',
     backgroundImageInput: '#backgroundImage',
-    backgroundImageInputValue: 'http://localhost:3000/images/batman.jpg',
+    backgroundImageInputValue: 'http://localhost:3000/images/bg-batman.jpg',
     colorPreview: '#colorPreview',
     pinkColorPreview: 'red white-text card-panel',
     firstNameInput: '#firstName',
