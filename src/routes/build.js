@@ -128,6 +128,7 @@ router.post('/create', function(req, res) {
             gitUser: req.body.gitHub,
             website: req.body.website,
             host: req.body.host,
+            logo: req.body.logo,
             year: year
         },
         templates: {

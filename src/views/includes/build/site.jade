@@ -16,6 +16,10 @@ div.card-panel
             label(for='website') Website
     div.row
         div.col.s12
+            input#websiteLogo.validate(value='http://localhost:3000/images/logo.png', placeholder='http://localhost:3000/images/logo.png', name='websiteLogo', type='url' required)
+            label(for='websiteLogo') Website
+    div.row
+        div.col.s12
             input#siteDescription.validate(placeholder='Batman, Billionaire, Vigilante' name='siteDescription' type='text' required)
             label(for='siteDescription') Site Description
     div.row
