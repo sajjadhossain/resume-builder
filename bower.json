@@ -24,6 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "PACE": "pace#~1.0.2"
+    "PACE": "pace#~1.0.2",
+    "Flowtype.js": "~1.1.0"
   }
 }

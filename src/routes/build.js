@@ -14,7 +14,6 @@ function camelize (str) {
 
 /* GET /build. */
 router.get('/', function(req, res) {
-    //require('./cron.js');
     db.connect(main.data, ['build']);
     res.render('build');
 });
@@ -22,9 +21,47 @@ router.get('/', function(req, res) {
 /* POST build/create */
 router.post('/create', function(req, res) {
 
-    // Copyright
-    var date = new Date();
-    var year = date.getFullYear();
+    // Year and Meta
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    // First Name and Last Name values
+    var firstNameLegnth = req.body.firstName.length;
+    var lastNameLegnth = req.body.lastName.length;
+    var firstNameMobileFontSize;
+    var lastNameMobileFontSize;
+
+    if (firstNameLegnth < 7) {
+        firstNameMobileFontSize = '70px';
+    } if (7 < firstNameLegnth) {
+        firstNameMobileFontSize = '40px';
+    } if (11 < firstNameLegnth) {
+        firstNameMobileFontSize = '20px';
+    } if (17 < firstNameLegnth) {
+        firstNameMobileFontSize = '10px';
+    }
+
+    if (lastNameLegnth < 7) {
+        lastNameMobileFontSize = '70px';
+    } if (7 < lastNameLegnth) {
+        lastNameMobileFontSize = '40px';
+    } if (11 < lastNameLegnth) {
+        lastNameMobileFontSize = '20px';
+    } if (17 < lastNameLegnth) {
+        lastNameMobileFontSize = '10px';
+    }
+
+    today = mm+'.'+dd+'.'+yyyy;
 
     // Count and do something with each skill
     var maxSkills = req.body['countSkills'];
@@ -84,16 +121,19 @@ router.post('/create', function(req, res) {
 
     var data = {
         site: {
+            gitUser: req.body.gitHub,
             title: req.body.firstName + ' ' + req.body.lastName + ' | ' + req.body.siteDescription,
             siteDescription: req.body.siteDescription,
             keywords: req.body.keywords,
-            gitUser: req.body.gitHub,
             website: req.body.website,
             host: req.body.host,
             logo: req.body.websiteLogo,
-            year: year
+            lastUpdated: today,
+            year: yyyy
         },
         templates: {
+            firstNameMobileFontSize: firstNameMobileFontSize,
+            lastNameMobileFontSize: lastNameMobileFontSize,
             resumeHeader: 'card-panel ' + req.body.background + ' lighten-1 z-depth-1',
             objectiveHeader: 'card-panel ' + req.body.background + ' lighten-5 z-depth-1',
             contactHeader: 'card-panel ' + req.body.background + ' z-depth-1' + ' center',
@@ -121,11 +161,8 @@ router.post('/create', function(req, res) {
         },
         resume: {
             skills: skills,
-            totalSkills: maxSkillsInt + 1,
             education: schools,
-            totalSchools: maxSchoolsInt + 1,
-            jobs: jobs,
-            totalJobs: maxJobsInt + 1
+            jobs: jobs
         }
     };
 
@@ -143,7 +180,7 @@ router.post('/create', function(req, res) {
 
 /* POST build/details */
 router.post('/details', function(req, res) {
-    db.connect(main.data, ['build', 'details']);
+    db.connect(main.data, ['build']);
     var foundResume = db.build.find();
     var site = foundResume.site;
     var info = foundResume.info;
@@ -193,6 +230,10 @@ router.post('/details', function(req, res) {
     });
 
     writeson(main.data + '/details.json', data, function(err) {
+        if(err) return console.err(err);
+    });
+
+    writeson(main.data + '/theme.json', template, function(err) {
         if(err) return console.err(err);
     });
 

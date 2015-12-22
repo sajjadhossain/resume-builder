@@ -8,16 +8,15 @@ var writeson = require('writeson');
 
 /* GET details */
 router.get('/', function(req, res) {
-    db.connect(main.data, ['details']);
-    var foundResume = db.details.find();
-    var site = foundResume.site;
-    var info = foundResume.info;
-    var template = foundResume.templates;
-    var jobs = foundResume.resume.jobs;
-    var education = foundResume.resume.education;
-    var skills = foundResume.resume.skills;
-    var foundUser = db.github.find();
-    var user = foundUser.user.login;
+    db.connect(main.data, ['build']);
+    var foundBuild = db.build.find();
+    var site = foundBuild.site;
+    var info = foundBuild.info;
+    var template = foundBuild.templates;
+    var jobs = foundBuild.resume.jobs;
+    var education = foundBuild.resume.education;
+    var skills = foundBuild.resume.skills;
+    var user = foundBuild.site.gitUser;
     var data = {
         site: site,
         info: info,

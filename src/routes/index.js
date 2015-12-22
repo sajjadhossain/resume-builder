@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 var db = require('diskdb');
 var main = require('../../index');
-
+//var writeson = require('writeson');
 var resumeData = require('../data/resume.json');
+var gitHubUserData = require('../data/github.json').user;
 
 // GET home page
 router.get('/', function(req, res) {
@@ -29,6 +30,10 @@ router.get('/', function(req, res) {
         github: github
     };
 
+    //writeson(main.data + '/candidate.json', data, function(err) {
+    //    if(err) return console.err(err);
+    //});
+
     //var dats = {
     //    firstName: foundResume.info.firstName,
     //    lastName: foundResume.info.lastName,
@@ -48,7 +53,6 @@ router.get('/', function(req, res) {
     //    resume: foundDetails.resume.jobs,
     //    gitHubUserData: foundUser.site.gitUser
     //};
-    var gitUser = foundUser.user.login;
     var web = {
         firstName: resumeData.firstName,
         lastName: resumeData.lastName,
@@ -66,9 +70,10 @@ router.get('/', function(req, res) {
         logo: resumeData.logo,
         templates: resumeData.templates,
         resume: resumeData.resume,
-        gitHubUserData: gitUser
+        gitHubUserData: gitHubUserData
     };
-    res.render('index', web);
+
+    res.render('index', data);
 });
 
 module.exports = router;

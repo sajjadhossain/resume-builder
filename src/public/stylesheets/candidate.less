@@ -1,0 +1,596 @@
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+@json: ~`json = function($key) {
+    var jsonFile = '../../data/theme.json'
+    var request = new XMLHttpRequest();
+
+    request.open("GET", jsonFile, false);
+    request.send(null);
+
+    var my_json = JSON.parse(request.responseText);
+    return my_json[$key];
+}`;
+
+@candidateBackgroundColor:   #FFFFFF;
+@candidateTextIconsColor:   #FFFFFF;
+@candidatePrimaryColor: #FF5722;
+@candidateLightPrimaryColor:   #FFCCBC;
+@candidateDarkPrimaryColor: #E64A19;
+@candidateDividerColor: #B6B6B6;
+@candidatePrimaryTextColor: #212121;
+@candidateSecondaryTextColor: #727272;
+@candidateAccentColor: #FF9800;
+
+/* ==========================================================================
+   Candidates Generated CSS
+   ========================================================================== */
+
+html, body {
+    height: 100%
+}
+
+.bodyWrapper {
+    min-height:100%;
+    position:relative
+}
+
+.candidateWelcomeBackground {
+    background-color: @candidatePrimaryColor;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.candidateFirstName {
+    color: @candidateTextIconsColor;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    width: 100%;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    font-size: ~`json('firstNameMobileFontSize')`;
+}
+
+.candidateLastName {
+    color: @candidateTextIconsColor;
+    text-transform: uppercase;
+    width: 100%;
+    font-style: italic;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 100;
+    font-size: ~`json('lastNameMobileFontSize')`;
+}
+
+//.contactInline li {
+//    display: inline-block;
+//    list-style-type: none;
+//    padding-left: 1.66rem;
+//    padding-right: 1.66rem;
+//}
+//
+//.contactInline a {
+//    color: @candidateTextIconsColor;
+//}
+//
+//.contactInline a:hover {
+//    color: @candidateAccentColor;
+//}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
+   ========================================================================== */
+
+/* ==========================================================================
+   Smartphones (portrait and landscape)
+   ========================================================================== */
+
+//@media only screen
+//and (min-device-width : 320px)
+//and (max-device-width : 480px) {
+//    body {
+//        //background: url(../images/bg_blur_320.jpg) no-repeat center center fixed;
+//        -webkit-background-size: cover;
+//        -moz-background-size: cover;
+//        -o-background-size: cover;
+//        background-size: cover;
+//    }
+//
+//    .first-name {
+//        color: #ffffff;
+//        letter-spacing: 0.25rem;
+//        text-transform: uppercase;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 700;
+//        font-size: 1.75rem;
+//    }
+//
+//    .last-name {
+//        color: #ffffff;
+//        text-transform: uppercase;
+//        font-style: italic;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 100;
+//        font-size: 1.75rem;
+//    }
+//
+//    .inline li {
+//        display: inline-block;
+//        list-style-type: none;
+//        padding-left: 1.66rem;
+//        padding-right: 1.66rem;
+//    }
+//
+//    .inline a {
+//        color: #ffffff;
+//    }
+//
+//    .inline a:hover {
+//        color: #ffc107;
+//    }
+//
+//    .my-lists {
+//        padding-left: 1.33rem;
+//        padding-right: 1.33rem;
+//    }
+//
+//    .my-list-item {
+//        list-style-type: disc;
+//    }
+//}
+//
+///* ==========================================================================
+//   Smartphones (landscape)
+//   ========================================================================== */
+//
+//@media only screen
+//and (min-width : 321px) {
+//    body {
+//        -webkit-background-size: cover;
+//        -moz-background-size: cover;
+//        -o-background-size: cover;
+//        background-size: cover;
+//    }
+//
+//    .first-name {
+//        color: #ffffff;
+//        letter-spacing: 0.25rem;
+//        text-transform: uppercase;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 700;
+//        font-size: 2.33rem;
+//    }
+//
+//    .last-name {
+//        color: #ffffff;
+//        text-transform: uppercase;
+//        font-style: italic;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 100;
+//        font-size: 2.33rem;
+//    }
+//
+//    .inline li {
+//        display: inline-block;
+//        list-style-type: none;
+//        padding-left: 2.33rem;
+//        padding-right: 2.33rem;
+//    }
+//
+//    .inline a {
+//        color: #ffffff;
+//    }
+//
+//    .inline a:hover {
+//        color: #ffc107;
+//    }
+//
+//    h3 {
+//        font-size: 1.5em;
+//        line-height: 1.13636364em;
+//    }
+//
+//    h4 {
+//        font-size: 1.375em;
+//        line-height: 1.11111111em;
+//    }
+//
+//    h5 {
+//        font-size: 1.125em;
+//        line-height: 1.11111111em;
+//    }
+//
+//    .flow-text {
+//        font-size: 1.125em;
+//    }
+//
+//    .contact-form-labels {
+//        font-size: 1.33em;
+//        line-height: 1.33;
+//    }
+//
+//    .contact-form-values {
+//        font-size: 1.33em;
+//        line-height: 1.33;
+//    }
+//}
+//
+///* ==========================================================================
+//   Smartphones (portrait)
+//   ========================================================================== */
+//
+//@media only screen
+//and (max-width : 320px) {
+//    body {
+//        -webkit-background-size: cover;
+//        -moz-background-size: cover;
+//        -o-background-size: cover;
+//        background-size: cover;
+//    }
+//
+//    .first-name {
+//        color: #ffffff;
+//        letter-spacing: 0.25rem;
+//        text-transform: uppercase;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 700;
+//        font-size: 2rem;
+//    }
+//
+//    .last-name {
+//        color: #ffffff;
+//        text-transform: uppercase;
+//        font-style: italic;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 100;
+//        font-size: 2rem;
+//    }
+//
+//    .inline li {
+//        display: inline-block;
+//        list-style-type: none;
+//        padding-left: 1.66rem;
+//        padding-right: 1.66rem;
+//    }
+//
+//    .inline a {
+//        color: #ffffff;
+//    }
+//
+//    .inline a:hover {
+//        color: #ffc107;
+//    }
+//
+//    h3 {
+//        font-size: 1.5em;
+//        line-height: 1.13636364em;
+//    }
+//
+//    h4 {
+//        font-size: 1.375em;
+//        line-height: 1.11111111em;
+//    }
+//
+//    h5 {
+//        font-size: 1.125em;
+//        line-height: 1.11111111em;
+//    }
+//
+//    .flow-text {
+//        font-size: 1.125em;
+//    }
+//
+//    .contact-form-labels {
+//        font-size: 1.33em;
+//        line-height: 1.33;
+//    }
+//
+//    .contact-form-values {
+//        font-size: 1.115em;
+//        line-height: 1.33;
+//    }
+//}
+//
+///* ==========================================================================
+//   iPads (portrait and landscape)
+//   ========================================================================== */
+//
+//@media only screen
+//and (min-device-width : 768px)
+//and (max-device-width : 1224px) {
+//    body {
+//        -webkit-background-size: cover;
+//        -moz-background-size: cover;
+//        -o-background-size: cover;
+//        background-size: cover;
+//    }
+//
+//    h3 {
+//        font-size: 1.75em;
+//        line-height: 1.25em;
+//    }
+//
+//    h4 {
+//        font-size: 1.5em;
+//        line-height: 1.22222222em;
+//    }
+//
+//    h5 {
+//        font-size: 1.25em;
+//        line-height: 1.11111111em;
+//    }
+//
+//    .flow-text {
+//        font-size: 1.125em;
+//    }
+//
+//    .contact-form-labels {
+//        font-size: 1.5em;
+//        line-height: 1.1;
+//    }
+//
+//    .contact-form-values {
+//        font-size: 1.25em;
+//        line-height: 1.1;
+//    }
+//}
+//
+///* ==========================================================================
+//   iPads (landscape)
+//   ========================================================================== */
+//
+//@media only screen
+//and (min-device-width : 768px)
+//and (max-device-width : 1024px)
+//and (orientation : landscape) {
+//    body {
+//        -webkit-background-size: cover;
+//        -moz-background-size: cover;
+//        -o-background-size: cover;
+//        background-size: cover;
+//    }
+//
+//    .first-name {
+//        color: #ffffff;
+//        letter-spacing: 0.25rem;
+//        text-transform: uppercase;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 700;
+//        font-size: 4.75rem;
+//    }
+//
+//    .last-name {
+//        color: #ffffff;
+//        text-transform: uppercase;
+//        font-style: italic;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 100;
+//        font-size: 4.5rem;
+//    }
+//}
+//
+///* ==========================================================================
+//   iPads (portrait)
+//   ========================================================================== */
+//
+//@media only screen
+//and (min-device-width : 768px)
+//and (max-device-width : 1024px)
+//and (orientation : portrait) {
+//    body {
+//        -webkit-background-size: cover;
+//        -moz-background-size: cover;
+//        -o-background-size: cover;
+//        background-size: cover;
+//    }
+//
+//    .first-name {
+//        color: #ffffff;
+//        letter-spacing: 0.25rem;
+//        text-transform: uppercase;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 700;
+//        font-size: 3.75rem;
+//    }
+//
+//    .last-name {
+//        color: #ffffff;
+//        text-transform: uppercase;
+//        font-style: italic;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 100;
+//        font-size: 3.75rem;
+//    }
+//}
+//
+///* ==========================================================================
+//   Desktops and laptops
+//   ==========================================================================*/
+//
+//@media only screen
+//and (min-width : 1224px) {
+//    body {
+//        -webkit-background-size: cover;
+//        -moz-background-size: cover;
+//        -o-background-size: cover;
+//        background-size: cover;
+//    }
+//
+//    .first-name {
+//        color: #ffffff;
+//        letter-spacing: 0.25rem;
+//        text-transform: uppercase;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 700;
+//        font-size: 5.75rem;
+//    }
+//
+//    .last-name {
+//        color: #ffffff;
+//        text-transform: uppercase;
+//        font-style: italic;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 100;
+//        font-size: 5.75rem;
+//    }
+//
+//    h3 {
+//        font-size: 1.75em;
+//        line-height: 1.13636364em;
+//    }
+//
+//    h4 {
+//        font-size: 1.5em;
+//        line-height: 1.11111111em;
+//    }
+//
+//    h5 {
+//        font-size: 1.375em;
+//        line-height: 1.11111111em;
+//    }
+//
+//    .flow-text {
+//        font-size: 1.25em;
+//    }
+//
+//    .contact-form-labels {
+//        font-size: 1.5em;
+//        line-height: 1.1;
+//    }
+//
+//    .contact-form-values {
+//        font-size: 1.25em;
+//        line-height: 1.1;
+//    }
+//}
+//
+///* ==========================================================================
+//   Large screens
+//   ========================================================================== */
+//
+//@media only screen
+//and (min-width : 1824px) {
+//    body {
+//        -webkit-background-size: cover;
+//        -moz-background-size: cover;
+//        -o-background-size: cover;
+//        background-size: cover;
+//    }
+//
+//    .first-name {
+//        color: #ffffff;
+//        letter-spacing: 0.25rem;
+//        text-transform: uppercase;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 700;
+//        font-size: 5.75rem;
+//    }
+//
+//    .last-name {
+//        color: #ffffff;
+//        text-transform: uppercase;
+//        font-style: italic;
+//        font-family: 'Exo 2', sans-serif;
+//        font-weight: 100;
+//        font-size: 5.75rem;
+//    }
+//
+//    h3 {
+//        font-size: 2em;
+//        line-height: 1.13636364em;
+//    }
+//
+//    h4 {
+//        font-size: 1.75em;
+//        line-height: 1.11111111em;
+//    }
+//
+//    h5 {
+//        font-size: 1.5em;
+//        line-height: 1.11111111em;
+//    }
+//
+//    .contact-form-labels {
+//        font-size: 1.75em;
+//        line-height: 1.1;
+//    }
+//
+//    .contact-form-values {
+//        font-size: 1.5em;
+//        line-height: 1.1;
+//    }
+//}
+//
+///* ==========================================================================
+//   Screen size agnostic
+//   ========================================================================== */
+//
+//.remove-font-styles {
+//    color: rgba(0,0,0,0.87) !important;
+//}
+//
+//.git-data {
+//    border-right: solid #E4E4E4;
+//    min-height: 100px;
+//}
+//
+//.git-image {
+//    max-width: 250px;
+//}
+//
+//.sub {
+//    color: #ffffff;
+//}
+//
+//.chips-padding {
+//    padding-top: 0.25rem;
+//    padding-bottom: 0.25rem;
+//}
+//
+//.padding-top {
+//    padding-top: 2.5rem;
+//}
+//
+//.padding-bottom {
+//    padding-bottom: 2.5rem;
+//}
+//
+//.padding-right {
+//    padding-right: 0.75rem;
+//}
+//
+//.smaller {
+//    font-size: 75%;
+//}
+//
+//.smallest {
+//    font-size: 65%;
+//    font-style: italic;
+//}
+//
+//.top-content {
+//    padding-bottom: 2rem;
+//}
+//
+//.bottom-content-padding-bottom {
+//    padding-bottom:2rem;
+//}
+//
+//.disabled {
+//    pointer-events: none;
+//    cursor: default;
+//}
+//
+//.my-lists {
+//    padding-left: 2.33rem;
+//    padding-right: 2.33rem;}
+//
+//.my-list-item {
+//    list-style-type: disc;
+//}

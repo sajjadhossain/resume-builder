@@ -8,47 +8,47 @@ var selectors = require('../../selectors');
 var defaults = require('../../defaults');
 var build = require(main.src + '/data/build.json');
 
-describe('Prepare\'s Builder', function () {
-    it('Clears Data', function (done) {
-        var build = {
-            jobs: {}
-        };
-        var details = {};
-        var bullets = {};
-        var github = {};
-        var gmail = {};
-        writeson(main.path + '/gmail.json', gmail, function(err) {
-            if(err) return console.err(err);
-        });
-        writeson(main.data + '/github.json', github, function(err) {
-            if(err) return console.err(err);
-        });
-        writeson(main.data + '/build.json', build, function(err) {
-            if(err) return console.err(err);
-        });
-        writeson(main.data + '/details.json', details, function(err) {
-            if(err) return console.err(err);
-        });
-        writeson(main.data + '/bullets.json', bullets, function(err) {
-            if(err) return console.err(err);
-        });
-        browser.pause(defaults.defaultWaitForElement).call(done);
-    });
-});
+//describe('Prepare\'s Builder', function () {
+//    it('Clears Data', function (done) {
+//        var build = {
+//            jobs: {}
+//        };
+//        var details = {};
+//        var bullets = {};
+//        var github = {};
+//        var gmail = {};
+//        writeson(main.path + '/gmail.json', gmail, function(err) {
+//            if(err) return console.err(err);
+//        });
+//        writeson(main.data + '/github.json', github, function(err) {
+//            if(err) return console.err(err);
+//        });
+//        writeson(main.data + '/build.json', build, function(err) {
+//            if(err) return console.err(err);
+//        });
+//        writeson(main.data + '/details.json', details, function(err) {
+//            if(err) return console.err(err);
+//        });
+//        writeson(main.data + '/bullets.json', bullets, function(err) {
+//            if(err) return console.err(err);
+//        });
+//        browser.pause(defaults.defaultWaitForElement).call(done);
+//    });
+//});
 
 describe('Resumé Builder', function () {
     require('./steps/step1.js');
-    require('./steps/step2.js');
-    require('./steps/step3.js');
-    require('./steps/step4.js');
-    require('./steps/step5.js');
-    require('./steps/step6.js');
-    require('./steps/step7.js');
+    //require('./steps/step2.js');
+    //require('./steps/step3.js');
+    //require('./steps/step4.js');
+    //require('./steps/step5.js');
+    //require('./steps/step6.js');
+    //require('./steps/step7.js');
     require('./submit.js');
-    require('./steps/step8.js');
-    require('./steps/job1.js');
-    require('./steps/job2.js');
-    require('./steps/job3.js');
-    require('./steps/submitDetails.js');
+    //require('./steps/step8.js');
+    //require('./steps/job1.js');
+    //require('./steps/job2.js');
+    //require('./steps/job3.js');
+    //require('./steps/submitDetails.js');
 });
 

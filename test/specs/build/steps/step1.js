@@ -58,7 +58,7 @@ it('Creates Theme', function (done) {
         })
         .call(done);
 });
-it('Navigates: Step 2', function (done) {
+it.skip('Navigates: Step 2', function (done) {
     browser
         .pause(defaults.async)
         .click(objects.step1.next)
