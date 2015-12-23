@@ -1,23 +1,29 @@
 {
-  "devDependencies": {
-    "archiver": "^0.14.3",
-    "del": "^1.1.1",
-    "glob": "^5.0.5",
-    "gulp": "^3.8.11",
-    "gulp-autoprefixer": "^2.1.0",
-    "gulp-header": "^1.2.2",
-    "gulp-jscs": "^1.5.1",
-    "gulp-jshint": "^1.9.2",
-    "gulp-load-plugins": "^0.10.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-replace": "^0.5.3",
-    "jquery": "1.11.3",
-    "jshint-stylish": "^1.0.1",
-    "mocha": "^2.2.4",
-    "nodemon": "^1.8.1",
-    "normalize.css": "3.0.3",
-    "run-sequence": "^1.0.2"
+  "homepage": "https://github.com/sajjadhossain/resume-builder",
+  "license": "MIT",
+  "name": "resume-builder",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sajjadhossain/resume-builder.git"
   },
+  "description": "It's 2015, you should update your resume and generate a web version using a CLI, using Templates on MarkDown.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "init": "gulp init:app",
+    "init-testing": "gulp init:testing",
+    "archive": "gulp archive",
+    "test": "wdio ./test/wdio.conf.js",
+    "start": "node ./dist/bin/www",
+    "source": "echo 'Listening on <http://localhost:3010>' && PORT=3010 node ./src/bin/www",
+    "debug": "DEBUG=app npm run source"
+  },
+
+  "version": "0.0.1",
   "engines": {
     "node": ">=0.10.0"
   },
@@ -29,25 +35,9 @@
       "test": "test"
     }
   },
-  "homepage": "https://github.com/sajjadhossain/resume-builder",
-  "license": "MIT",
-  "name": "resume-builder",
-  "private": true,
-  "scripts": {
-    "build": "gulp build",
-    "init": "gulp init:app",
-    "init-testing": "gulp init:testing",
-    "archive": "gulp archive",
-    "test": "wdio ./test/wdio.conf.js",
-    "start": "node ./dist/bin/www",
-    "source": "node ./src/bin/www",
-    "debug": "DEBUG=app npm run source"
-  },
-  "version": "0.0.1",
   "dependencies": {
     "async": "^1.4.2",
     "body-parser": "^1.14.1",
-    "bower": "^1.6.3",
     "browserify": "^11.2.0",
     "chai": "^1.6.1",
     "chai-fs": "^0.1.0",
@@ -77,14 +67,24 @@
     "writeson": "^1.0.1",
     "xml2js": "^0.4.13"
   },
-  "description": "It's 2015, you should update your resume and generate a web version using a CLI, using Templates on MarkDown.",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sajjadhossain/resume-builder.git"
+  "devDependencies": {
+    "archiver": "^0.14.3",
+    "del": "^1.1.1",
+    "glob": "^5.0.5",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-header": "^1.2.2",
+    "gulp-jscs": "^1.5.1",
+    "gulp-jshint": "^1.9.2",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.3",
+    "jquery": "1.11.3",
+    "jshint-stylish": "^1.0.1",
+    "mocha": "^2.2.4",
+    "nodemon": "^1.8.1",
+    "normalize.css": "3.0.3",
+    "run-sequence": "^1.0.2"
   },
   "keywords": [
     "Resume",
