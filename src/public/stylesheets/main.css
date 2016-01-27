@@ -806,6 +806,7 @@ input::placeholder {
 /* Chip, restore padding */
 .chip {
     margin-left: 2px !important;
+    margin-bottom: 2px !important;
 }
 
 /* ==========================================================================
