@@ -6,7 +6,7 @@ $(document).ready(function () {
         name = $('#name').val();
         email = $('#email').val();
         message = $('#message').val();
-        $.get('http://localhost:3000/send', {
+        $.get('http://www.metaterran.com/send', {
             name: name,
             email: email,
             message: message

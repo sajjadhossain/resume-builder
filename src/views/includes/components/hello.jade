@@ -6,15 +6,15 @@ div.row
                 p.form-group.input-field.col.s12
                     label
                         span.contact-form-labels Name*
-                    input#name.form-control.white-text(type='text', name = 'name', placeholder='Enter Name')
+                    input#name.form-control(type='text', name = 'name', placeholder='Bruce Wayne')
                 p.form-group.input-field.col.s12
                     label
                         span.contact-form-labels Email*
-                    input#email.form-control.white-text(type='email', name = 'email' placeholder='Enter Email')
+                    input#email.form-control(type='email', name = 'email' placeholder='bwayne@wayneenterprises.com')
                 p.form-group.input-field.col.s12
                     label
                         span.contact-form-labels Message
-                    textarea#message.form-control.validate.materialize-textarea.contact-form-values.white-text(value='' placeholder='Wayne Enterprises is interested in your profile.' name='message' type='textarea', required, message=true)
+                    textarea#message.form-control.validate.materialize-textarea.contact-form-values(value='' placeholder='Wayne Enterprises is interested in your profile.' name='message' type='textarea', required, message=true)
             div(class='right')
                     button#submit(class!= templates.submitButton type='submit') Submit
                         i.material-icons.left send

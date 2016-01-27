@@ -567,6 +567,104 @@ and (min-width : 1824px) {
    Screen size agnostic
    ========================================================================== */
 
+/* Menu */
+/* Overlay style */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255,87,34,1);
+}
+
+/* Overlay closing cross */
+.overlay .overlay-close {
+    /* Styles */
+}
+.overlay .close-button {
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 15px;
+    border: none;
+    z-index: 10000001;
+}
+
+/* Menu style */
+.overlay ul {
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    font-size: 3rem;
+}
+
+.overlay ul li {
+    padding-bottom: 10px;
+    min-height: 54px;
+}
+
+.overlay ul li a {
+    font-weight: 300;
+    color: #fff;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.overlay ul li a:hover,
+.overlay ul li a:focus {
+    color: #e3fcb1;
+}
+
+/* Effects */
+.overlay-hugeinc {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+.overlay-hugeinc.open {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+
+.overlay-hugeinc {
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+}
+
+.overlay-hugeinc ul {
+    opacity: 0.4;
+    -webkit-transform: translateY(-25%) rotateX(35deg);
+    transform: translateY(-25%) rotateX(35deg);
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.overlay-hugeinc.open ul {
+    opacity: 1;
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+}
+
+.overlay-hugeinc.close ul {
+    -webkit-transform: translateY(25%) rotateX(-35deg);
+    transform: translateY(25%) rotateX(-35deg);
+}
+
+/* Menu Button*/
+.topright {
+    cursor: pointer;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+}
+
 .remove-font-styles {
     color: rgba(0,0,0,0.87) !important;
 }
@@ -634,19 +732,23 @@ and (min-width : 1824px) {
 /* ==========================================================================
    Materialize helper classes
    ========================================================================== */
+/* Placeholder */
+input::placeholder {
+    color: rgba(0,0,0,0.87);
+}
 
 /* Label color */
 .input-field label {
-    color: #ffffff;
+    color: rgba(0,0,0,0.87);
 }
 /* Label focus color */
 .input-field input[type=text]:focus + label {
-    color: #ffd54f;
+    color: #e65100;
 }
 /* Label underline focus color */
 .input-field input[type=text]:focus {
-    border-bottom: 1px solid #ffd54f;
-    box-shadow: 0 1px 0 0 #ffd54f;
+    border-bottom: 1px solid #e65100;
+    box-shadow: 0 1px 0 0 #e65100;
 }
 /* Valid color */
 .input-field input[type=text].valid {
@@ -655,17 +757,17 @@ and (min-width : 1824px) {
 }
 /* Invalid color */
 .input-field input[type=text].invalid {
-    border-bottom: 1px solid #f44336;
-    box-shadow: 0 1px 0 0 #f44336;
+    border-bottom: 1px solid #b71c1c;
+    box-shadow: 0 1px 0 0 #b71c1c;
 }
 /* Label focus color */
 .input-field textarea[type=textarea]:focus + label {
-    color: #ffd54f;
+    color: #e65100;
 }
 /* Label underline focus color */
 .input-field textarea[type=textarea]:focus {
-    border-bottom: 1px solid #ffd54f;
-    box-shadow: 0 1px 0 0 #ffd54f;
+    border-bottom: 1px solid #e65100;
+    box-shadow: 0 1px 0 0 #e65100;
 }
 /* Valid color */
 .input-field textarea[type=textarea].valid {
@@ -674,17 +776,17 @@ and (min-width : 1824px) {
 }
 /* Invalid color */
 .input-field textarea[type=textarea].invalid {
-    border-bottom: 1px solid #f44336;
-    box-shadow: 0 1px 0 0 #f44336;
+    border-bottom: 1px solid #b71c1c;
+    box-shadow: 0 1px 0 0 #b71c1c;
 }
 /* Label focus color */
 .input-field input[type=email]:focus + label {
-    color: #ffd54f;
+    color: #e65100;
 }
 /* Label underline focus color */
 .input-field input[type=email]:focus {
-    border-bottom: 1px solid #ffd54f;
-    box-shadow: 0 1px 0 0 #ffd54f;
+    border-bottom: 1px solid #e65100;
+    box-shadow: 0 1px 0 0 #e65100;
 }
 /* Valid color */
 .input-field input[type=email].valid {
@@ -693,12 +795,17 @@ and (min-width : 1824px) {
 }
 /* Invalid color */
 .input-field input[type=email].invalid {
-    border-bottom: 1px solid #f44336;
+    border-bottom: 1px solid #b71c1c;
     box-shadow: 0 1px 0 0 #4caf50;
 }
 /* Icon prefix focus color */
 .input-field .prefix.active {
-    color: #ffd54f;
+    color: #e65100;
+}
+
+/* Chip, restore padding */
+.chip {
+    margin-left: 2px !important;
 }
 
 /* ==========================================================================
