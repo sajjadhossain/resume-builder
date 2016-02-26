@@ -172,6 +172,10 @@ and (max-device-width : 480px) {
     .my-list-item {
         list-style-type: disc;
     }
+
+    .overlay ul {
+        font-size: 2.5rem;
+    }
 }
 
 /* ==========================================================================
@@ -240,14 +244,8 @@ and (min-width : 321px) {
         font-size: 1.125em;
     }
 
-    .contact-form-labels {
-        font-size: 1.33em;
-        line-height: 1.33;
-    }
-
-    .contact-form-values {
-        font-size: 1.33em;
-        line-height: 1.33;
+    .overlay ul {
+        font-size: 2.5rem;
     }
 }
 
@@ -326,6 +324,10 @@ and (max-width : 320px) {
         font-size: 1.115em;
         line-height: 1.33;
     }
+
+    .overlay ul {
+        font-size: 2.5rem;
+    }
 }
 
 /* ==========================================================================
@@ -362,14 +364,8 @@ and (max-device-width : 1224px) {
         font-size: 1.125em;
     }
 
-    .contact-form-labels {
-        font-size: 1.5em;
-        line-height: 1.1;
-    }
-
-    .contact-form-values {
-        font-size: 1.25em;
-        line-height: 1.1;
+    .overlay ul {
+        font-size: 3.5rem;
     }
 }
 
@@ -406,6 +402,10 @@ and (orientation : landscape) {
         font-weight: 100;
         font-size: 4.5rem;
     }
+
+    .overlay ul {
+        font-size: 3.5rem;
+    }
 }
 
 /* ==========================================================================
@@ -440,6 +440,10 @@ and (orientation : portrait) {
         font-family: 'Exo 2', sans-serif;
         font-weight: 100;
         font-size: 3.75rem;
+    }
+
+    .overlay ul {
+        font-size: 3.5rem;
     }
 }
 
@@ -494,14 +498,8 @@ and (min-width : 1224px) {
         font-size: 1.25em;
     }
 
-    .contact-form-labels {
-        font-size: 1.5em;
-        line-height: 1.1;
-    }
-
-    .contact-form-values {
-        font-size: 1.25em;
-        line-height: 1.1;
+    .overlay ul {
+        font-size: 3.5rem;
     }
 }
 
@@ -552,14 +550,8 @@ and (min-width : 1824px) {
         line-height: 1.11111111em;
     }
 
-    .contact-form-labels {
-        font-size: 1.75em;
-        line-height: 1.1;
-    }
-
-    .contact-form-values {
-        font-size: 1.5em;
-        line-height: 1.1;
+    .overlay ul {
+        font-size: 3.5rem;
     }
 }
 
@@ -570,12 +562,16 @@ and (min-width : 1824px) {
 /* Menu */
 /* Overlay style */
 .overlay {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     background: rgba(255,87,34,1);
+    z-index: 10000000;
 }
 
 /* Overlay closing cross */
@@ -585,7 +581,7 @@ and (min-width : 1824px) {
 .overlay .close-button {
     cursor: pointer;
     position: absolute;
-    right: 5px;
+    right: 20px;
     top: 15px;
     border: none;
     z-index: 10000001;
@@ -596,7 +592,6 @@ and (min-width : 1824px) {
     margin: 0 auto;
     list-style: none;
     padding: 0;
-    font-size: 3rem;
 }
 
 .overlay ul li {
@@ -605,7 +600,6 @@ and (min-width : 1824px) {
 }
 
 .overlay ul li a {
-    font-weight: 300;
     color: #fff;
     -webkit-transition: color 0.2s;
     transition: color 0.2s;
@@ -658,11 +652,12 @@ and (min-width : 1824px) {
 /* Menu Button*/
 .topright {
     cursor: pointer;
-    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
     position: fixed;
     top: 15px;
-    right: 15px;
+    right: 25px;
     width: 50px;
+    z-index: 999999;
 }
 
 .remove-font-styles {
@@ -739,11 +734,11 @@ input::placeholder {
 
 /* Label color */
 .input-field label {
-    color: rgba(0,0,0,0.87);
+    color: #000000;
 }
 /* Label focus color */
 .input-field input[type=text]:focus + label {
-    color: #e65100;
+    color: #000000;
 }
 /* Label underline focus color */
 .input-field input[type=text]:focus {
@@ -762,7 +757,7 @@ input::placeholder {
 }
 /* Label focus color */
 .input-field textarea[type=textarea]:focus + label {
-    color: #e65100;
+    color: #000000;
 }
 /* Label underline focus color */
 .input-field textarea[type=textarea]:focus {
@@ -781,7 +776,7 @@ input::placeholder {
 }
 /* Label focus color */
 .input-field input[type=email]:focus + label {
-    color: #e65100;
+    color: #000000;
 }
 /* Label underline focus color */
 .input-field input[type=email]:focus {
@@ -800,7 +795,7 @@ input::placeholder {
 }
 /* Icon prefix focus color */
 .input-field .prefix.active {
-    color: #e65100;
+    color: #000000;
 }
 
 /* Chip, restore padding */
