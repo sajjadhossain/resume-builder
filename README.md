@@ -106,17 +106,22 @@ Current dependencies, to be updated via gulp.
         "xml2js": "^0.4.13"
     }
 
-###TODO
-Current requirements, to be updated via gulp.
+### TODO
+#### v2 MVP
 
-- [x] STYLE
-- [x] TEMPLETIZE
-- [ ] README
-- [ ] WIKI
-- [ ] DOC INIT
-- [x] DOC RENDER
-- [x] DOC ARCHIVE
-- [x] DOC SERVE
-- [ ] DOC DEPLOY
+- [ ] SASS
+- [ ] WebPack
+- [ ] End-To-End Testing
+- [ ] Finish Featured posts
+	- [ ] The curriculum vitaé of 2016.
+- [ ] Comment the phuck out of your code
+- [ ] Finalize:
+	- [ ] ReadMe
+	- [ ] Wiki
+		- [ ] INIT
+		- [ ] RENDER
+		- [ ] ARCHIVE
+		- [ ] SERVE
+		- [ ] DEPLOY
 
 
