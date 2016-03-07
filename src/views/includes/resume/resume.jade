@@ -1,4 +1,12 @@
 for job in resume
+    div(class='hide-on-med-and-up show-on-small')
+        div(class='center')
+            a(class!=templates['modalButtons'] href!= '#' + job.name) Read More
+        div(id!= job.name class='modal bottom-sheet')
+            div(class='col s12')
+                ul(class='my-lists') !{job.bullets}
+            div(class='modal-footer')
+                a(href='#' class='modal-action modal-close waves-effect btn-flat') Close
     div(class!= templates['cards'])
         article(class!=job.name)
             div(class='hide-on-small-only')
@@ -30,11 +38,3 @@ for job in resume
             p !{job.description}
             div(class='hide-on-small-only')
                 ul(class='my-lists') !{job.bullets}
-            div(class='hide-on-med-and-up show-on-small')
-                div(class='center')
-                    a(class!=templates['modalButtons'] href!= '#' + job.name) Read More
-                div(id!= job.name class='modal bottom-sheet')
-                    div(class='col s12')
-                        ul(class='my-lists') !{job.bullets}
-                    div(class='modal-footer')
-                        a(href='#' class='modal-action modal-close waves-effect btn-flat') Close
