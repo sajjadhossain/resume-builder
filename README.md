@@ -109,6 +109,9 @@ Current dependencies, to be updated via gulp.
 ### TODO
 #### v2 MVP
 
+- [ ] `/build` functionality
+- [ ] `/build` design, SPA methodology
+- [ ] `/build` preview
 - [ ] SASS
 - [ ] WebPack
 - [ ] End-To-End Testing
