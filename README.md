@@ -109,6 +109,7 @@ Current dependencies, to be updated via gulp.
 ### TODO
 #### v2 MVP
 
+- [ ] SEO, Page Analytics
 - [ ] `/build` functionality
 - [ ] `/build` design, SPA methodology
 - [ ] `/build` preview
